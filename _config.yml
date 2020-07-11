@@ -1,4 +1,4 @@
-title:      " "
+title:            
 description:      Iacopo Catalano personal website
 # Your site's domain goes here. Leave localhost server or blank when working locally.
 url:              //iacopomc.github.io
@@ -17,7 +17,7 @@ owner:
 # For external links add external: true
 links:
   - title: about
-    url: /about/
+    url: /_pages/about/
   - title: projects
     url: /projects/
   - title: resume
