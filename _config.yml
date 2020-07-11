@@ -1,19 +1,17 @@
-title:            e^{i\pi}+1=0
-description:      tanya's page
+title:
+description:      Iacopo Catalano personal website
 # Your site's domain goes here. Leave localhost server or blank when working locally.
-url:              //parshakova.github.io
+url:              //iacopomc.github.io
 
 # Owner/author information
 owner:
-  name:           Tetiana Parshakova
+  name:           Iacopo Maria Catalano
   avatar:         avatar.jpg
-  bio:            Ph.D. at Stanford
-  email:          ten10@kaist.ac.kr
+  bio:            Junior Data Scientist at Accenture
+  email:          iacopomcatalano@gmail.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
-  google_scholar: lCr4ep8AAAAJ
-  github: parshakova
-# Analytics and webmaster tools stuff goes here
-google_analytics: UA-127797746-1
+  github: IacopomC
+  linkedin: iacopocatalano
 
 # Links to include in top navigation
 # For external links add external: true
@@ -22,20 +20,20 @@ links:
     url: /about/
   - title: projects
     url: /projects/
-  - title: publications
-    url: /publications/
-  - title: curriculum
-    url: /images/tetiana_cv.pdf
+  - title: resume
+    url: /images/iacopo_catalano_cv.pdf
+#   - title: publications
+#     url: /publications/
   
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    USA/California
+timezone:    Europe/Rome
 future:      true
 #pygments:    true
 highlighter: rouge
 markdown:    kramdown
 kramdown:
-  extensions: ["strikethrough"]
+extensions: ["strikethrough"]
   
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title/
