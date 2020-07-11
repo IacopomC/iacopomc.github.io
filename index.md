@@ -1,7 +1,7 @@
 ---
 layout: home2
-title: Hello and Welcome!
-description: Alexu's page
+title: About me
+description: About me section
 tags: [Jekyll, theme, responsive, blog, template]
 ---
 
