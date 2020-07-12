@@ -17,7 +17,7 @@ owner:
 # For external links add external: true
 links:
   - title: about
-    url: /about/
+    url: /index/
   - title: projects
     url: /projects/
   - title: resume
