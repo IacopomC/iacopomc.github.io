@@ -24,6 +24,10 @@ links:
     url: /assets/images/iacopo_catalano_cv.pdf
 #   - title: publications
 #     url: /publications/
+
+collections:
+  projects:
+    output: true
   
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
