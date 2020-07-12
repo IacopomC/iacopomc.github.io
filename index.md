@@ -1,5 +1,5 @@
 ---
-layout: home2
+layout: page
 title: About me
 description: About me section
 tags: [Jekyll, theme, responsive, blog, template]
