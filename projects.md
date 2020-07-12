@@ -1,8 +1,8 @@
 ---
 layout: post-index
 permalink: /projects/
-title: All Posts
-tagline: A List of Posts
-tags: [blog]
+title: All Projects
+tagline: A List of Projects
+tags: [projects]
 comments: false
 ---
