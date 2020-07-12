@@ -1,8 +1,8 @@
 ---
-layout: project-index
-permalink: /projects/
-title: Projects
-tagline: A List of all Projects
-tags: [projects]
+layout: post-index
+permalink: /blog/
+title: All Posts
+tagline: A List of Posts
+tags: [blog]
 comments: false
 ---
