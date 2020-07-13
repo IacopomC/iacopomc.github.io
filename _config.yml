@@ -23,6 +23,8 @@ links:
     url: /about/
   - title: projects
     url: /projects/
+  - title: posts
+    url: /posts/
   - title: resume
     url: /assets/images/iacopo_catalano_cv.pdf
 #   - title: publications
