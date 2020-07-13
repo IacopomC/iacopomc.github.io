@@ -1,4 +1,5 @@
 ---
+layout: page
 title: "Project: Finding Lane Lines on the Road"
 categories:
   - blog
