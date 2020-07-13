@@ -2,7 +2,6 @@
 layout: page
 title: About me
 description: About me section
-tags: [Jekyll, theme, responsive, blog, template]
 ---
 
 I'm a Data Scientist with a Bachelor of Science in Physics and past experience in Web Development. Fascinated by the way new technologies are shaping the world, from data science to automotive vehicles, from electrical cars to solar energy, driven by my passion for knowledge I’m avidly satisfying my interests through MOOCs.
