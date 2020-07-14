@@ -223,8 +223,8 @@ xbottom_right = np.round((ybottom - avg_right_intercept)/avg_right_slope).astype
 
 Here's the result of the pipeline applied to all the test images included in the project:
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteCurve-result.jpg" width="40%">
-<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteRight-result.jpg" width="40%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteCurve-result.jpg" width="50%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteRight-result.jpg" width="50%">
 
 <br/>
 
