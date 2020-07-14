@@ -241,7 +241,7 @@ Here's the result of the pipeline applied to all the test images included in the
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/challenge-result.PNG">
+<img src="{{ site.url }}/assets/images/lane-finding-project/challenge-result.PNG" width="50%">
 
 
 And the three videos:
