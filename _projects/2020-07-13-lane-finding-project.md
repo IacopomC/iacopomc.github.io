@@ -243,7 +243,16 @@ Here's the result of the pipeline applied to all the test images included in the
 
 And the final three videos:
 
-<video width="320" height="240" controls>
+<video width="50%" controls>
+  <source type="video/mp4" src="{{ site.url }}/assets/videos/lane-finding-project/solidWhiteRight.mp4">
+</video>
+<video width="50%" controls>
+  <source type="video/mp4" src="{{ site.url }}/assets/videos/lane-finding-project/solidWhiteRight.mp4">
+</video>
+
+<br/>
+
+<video width="50%" controls>
   <source type="video/mp4" src="{{ site.url }}/assets/videos/lane-finding-project/solidWhiteRight.mp4">
 </video>
 
