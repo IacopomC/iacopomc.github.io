@@ -30,8 +30,7 @@ The project is developed using Python and OpenCv. It can be found in the file `P
 
 Following, the steps of the pipeline on a test image
 
-![alt text](https://github.com/IacopomC/CarND-LaneLines-P1/blob/master/test_images/solidWhiteCurve.jpg?raw=true)
-<img src="./test_images/solidWhiteCurve.jpg" width="50%">
+![alt text](https://github.com/IacopomC/CarND-LaneLines-P1/blob/master/test_images/solidWhiteCurve.jpg?raw=true | width=100)
 
 First, I converted the image to *grayscale*
 
