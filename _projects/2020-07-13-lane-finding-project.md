@@ -7,9 +7,6 @@ tags:
   - Project
 ---
 
-# **Finding Lane Lines on the Road**
-
----
 ## Description
 
 The goal of this project is to identify lane lines on the road. At first the pipeline is developed on a series of individual images, and later the result is applied to a video stream.
@@ -30,7 +27,7 @@ The project is developed using Python and OpenCv. It can be found in the file `P
 
 Following, the steps of the pipeline on a test image
 
-![alt text](https://github.com/IacopomC/CarND-LaneLines-P1/blob/master/test_images/solidWhiteCurve.jpg?raw=true | width=100)
+<img src="https://github.com/IacopomC/CarND-LaneLines-P1/blob/master/test_images/solidWhiteCurve.jpg" width="50%">
 
 First, I converted the image to *grayscale*
 
