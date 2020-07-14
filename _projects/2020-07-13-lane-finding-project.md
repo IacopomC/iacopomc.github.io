@@ -240,6 +240,7 @@ Here's the result of the pipeline applied to all the test images included in the
 
 <img src="{{ site.url }}/assets/images/lane-finding-project/challenge-result.jpg" width="45%">
 
+<br/>
 
 And the final three videos:
 
