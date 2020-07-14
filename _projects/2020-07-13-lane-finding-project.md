@@ -243,9 +243,7 @@ Here's the result of the pipeline applied to all the test images included in the
 
 And the final three videos:
 
-<video width="480" height="320" controls="controls">
-  <source src="https://github.com/IacopomC/CarND-LaneLines-P1/blob/master/test_videos_output/solidWhiteRight.mp4" type="video/mp4">
-</video>
+<iframe width="560" height="315" src="https://github.com/IacopomC/CarND-LaneLines-P1/blob/master/test_videos_output/solidWhiteRight.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 ### Shortcomings with current pipeline
