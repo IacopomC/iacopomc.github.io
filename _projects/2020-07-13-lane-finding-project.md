@@ -27,11 +27,11 @@ The project is developed using Python and OpenCv. It can be found in the file `P
 
 Following, the steps of the pipeline on a test image
 
-<img src="https://raw.githubusercontent.com/IacopomC/CarND-LaneLines-P1/blob/master/test_images/solidWhiteCurve.jpg" width="50%">
+<img src="https://github.com/IacopomC/CarND-LaneLines-P1/blob/master/test_images/solidWhiteCurve.jpg" width="50%">
 
 First, I converted the image to *grayscale*
 
-<img src="https://github.com/IacopomC/CarND-LaneLines-P1/blob/master/pipeline_images/grayscale.jpg" width="50%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/grayscale.jpg" width="50%">
 
 Then I applied the *Gaussian Smoothing* filter using a kernel size of 5 to get rid of noise
 
