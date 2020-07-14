@@ -24,7 +24,7 @@ The project is developed using Python and OpenCv. You can download the full code
 ### Pipeline
 
 I started by reading in the test image
-<br/>
+
 ```python
 #reading in an image
 image = mpimg.imread('test_images/solidWhiteRight.jpg')
@@ -58,19 +58,97 @@ gray_img = grayscale(img)
 
 Then I applied the *Gaussian Smoothing* filter using a kernel size of 5 to get rid of noise
 
+```python
+def gaussian_blur(img, kernel_size):
+    """Applies a Gaussian Noise kernel"""
+    return cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)
+
+# Apply guassian filter to smooth noise
+kernel_size = 5
+blur_gray = gaussian_blur(gray_img, kernel_size)
+```
+
 <img src="{{ site.url }}/assets/images/lane-finding-project/blur_gray.jpg" width="70%">
+
+<br/>
 
 After that, I used *Color Selection* to highlight the lane lines only
 
+```python
+def apply_threshold(image, rgb_threshold):
+    highlighted_img = np.copy(image)
+    if len(image.shape) > 2:
+        color_thresholds = ((image[:,:,0] < rgb_threshold[0]) | (image[:,:,1] < rgb_threshold[1]) | (image[:,:,2] < rgb_threshold[2]))
+        highlighted_img[color_thresholds] = [0,0,0]
+    else:
+        color_thresholds = ((image[:,:] < rgb_threshold[0]))
+        highlighted_img[color_thresholds] = 0
+    return highlighted_img
+
+pixel_threshold = 200
+rgb_threshold = [pixel_threshold]
+highlighted_img = apply_threshold(blur_gray, rgb_threshold)
+```
+
 <img src="{{ site.url }}/assets/images/lane-finding-project/highlighted_img.jpg" width="70%">
 
-The *Canny Edge Operator* with a low threshold of 50 and  high threshold of 150 helped me detect edges
+<br/>
+
+The *Canny Edge Operator* with a low threshold of 50 and a high threshold of 150 helped me detect edges
+
+```python
+def canny(img, low_threshold, high_threshold):
+    """Applies the Canny transform"""
+    return cv2.Canny(img, low_threshold, high_threshold)
+
+# Apply Canny operator to obtain edges
+low_threshold = 50
+high_threshold = 150
+edges = canny(highlighted_img, low_threshold, high_threshold)
+```
 
 <img src="{{ site.url }}/assets/images/lane-finding-project/edges.jpg" width="70%">
 
+<br/>
+
 And through the use of a *Trapezoidal Mask* I isolated only the lane lines
 
+```python
+def region_of_interest(img, vertices):
+    """
+    Applies an image mask.
+    
+    Only keeps the region of the image defined by the polygon
+    formed from `vertices`. The rest of the image is set to black.
+    `vertices` should be a numpy array of integer points.
+    """
+    #defining a blank mask to start with
+    mask = np.zeros_like(img)   
+    
+    #defining a 3 channel or 1 channel color to fill the mask with depending on the input image
+    if len(img.shape) > 2:
+        channel_count = img.shape[2]  # i.e. 3 or 4 depending on your image
+        ignore_mask_color = (255,) * channel_count
+    else:
+        ignore_mask_color = 255
+        
+    #filling pixels inside the polygon defined by "vertices" with the fill color    
+    cv2.fillPoly(mask, vertices, ignore_mask_color)
+    
+    #returning the image only where mask pixels are nonzero
+    masked_image = cv2.bitwise_and(img, mask)
+    return masked_image
+
+# Create mask
+imshape = img.shape
+vertices = np.array([[(0,imshape[0]),(450, 320), (490, 320), (imshape[1],imshape[0])]], dtype=np.int32)
+#vertices = np.array([[(50,imshape[0]),(470, 320), (imshape[1] - 50,imshape[0])]], dtype=np.int32)
+masked_img = region_of_interest(edges, vertices)
+```
+
 <img src="{{ site.url }}/assets/images/lane-finding-project/masked_img.jpg" width="70%">
+
+<br/>
 
 Following, I used a *Hough Transform* to detect the lines with parameters:
 * rho = 1
@@ -79,7 +157,25 @@ Following, I used a *Hough Transform* to detect the lines with parameters:
 * min_line_len = 40 *minimum number of pixels making up a line*
 * max_line_gap = 100 *maximum gap in pixels between connectable line segments*
 
+```python
+def hough_lines(img, ytop, rho, theta, threshold, min_line_len, max_line_gap):
+    """
+    `img` should be the output of a Canny transform.
+        
+    Returns an image with hough lines drawn.
+    """
+    lines = cv2.HoughLinesP(img, rho, theta, threshold, np.array([]), minLineLength=min_line_len, maxLineGap=max_line_gap)
+    line_img = np.zeros((img.shape[0], img.shape[1], 3), dtype=np.uint8)
+    draw_lines(line_img, lines, ytop)
+    return line_img
+    
+# Use Hough Transform to detect lines in the mask image
+line_image = hough_lines(masked_img, 320, rho, theta, threshold, min_line_len, max_line_gap)
+```
+
 <img src="{{ site.url }}/assets/images/lane-finding-project/line_image.jpg" width="70%">
+
+<br/>
 
 To draw a single line on the left and right lanes, I modified the *draw_lines()* function by separating line segments by their slope to decide which segments are part of the left line vs. the right line. During this process, I selected only those lines whose angle fell between 20 and 45 degrees, ignoring possible horizontal and vertical segments that could alter the average.
 
@@ -120,6 +216,8 @@ xbottom_right = np.round((ybottom - avg_right_intercept)/avg_right_slope).astype
 ```
 
 <img src="{{ site.url }}/assets/images/lane-finding-project/final_output.jpg" width="70%">
+
+<br/>
 
 Finally, I applied the same pipeline to 3 different video streams included in the folder ```test_video_output```
 
