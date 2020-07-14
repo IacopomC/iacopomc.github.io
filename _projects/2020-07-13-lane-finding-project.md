@@ -241,7 +241,11 @@ Here's the result of the pipeline applied to all the test images included in the
 <img src="{{ site.url }}/assets/images/lane-finding-project/challenge-result.jpg" width="45%">
 
 
-And the three videos:
+And the final three videos:
+
+<video width="480" height="320" controls="controls">
+  <source src="https://github.com/IacopomC/CarND-LaneLines-P1/blob/master/test_videos_output/solidWhiteRight.mp4" type="video/mp4">
+</video>
 
 ---
 ### Shortcomings with current pipeline
