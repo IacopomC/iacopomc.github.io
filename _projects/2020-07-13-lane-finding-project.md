@@ -223,25 +223,25 @@ xbottom_right = np.round((ybottom - avg_right_intercept)/avg_right_slope).astype
 
 Here's the result of the pipeline applied to all the test images included in the project:
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteCurve-result.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteCurve-result.jpg" width="40%">
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteRight-result.jpg" width="45%">
-
-<br/>
-
-<img src="{{ site.url }}/assets/images/lane-finding-project/solidYellowCurve2-result.jpg" width="45%">
-
-<img src="{{ site.url }}/assets/images/lane-finding-project/solidYellowCurve-result.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteRight-result.jpg" width="40%">
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/solidYellowLeft-result.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidYellowCurve2-result.jpg" width="40%">
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/whiteCarLaneSwitch-result.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidYellowCurve-result.jpg" width="40%">
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/challenge-result.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidYellowLeft-result.jpg" width="40%">
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/whiteCarLaneSwitch-result.jpg" width="40%">
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/challenge-result.jpg" width="40%">
 
 
 And the three videos:
