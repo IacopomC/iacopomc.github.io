@@ -223,9 +223,9 @@ xbottom_right = np.round((ybottom - avg_right_intercept)/avg_right_slope).astype
 
 Here's the result of the pipeline applied to all the test images included in the project:
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/final_output.jpg" width="30%">
-<img src="{{ site.url }}/assets/images/lane-finding-project/final_output.jpg" width="30%">
-<img src="{{ site.url }}/assets/images/lane-finding-project/final_output.jpg" width="30%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/final_output.jpg" width="40%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/final_output.jpg" width="40%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/final_output.jpg" width="40%">
 
 And the three videos:
 
