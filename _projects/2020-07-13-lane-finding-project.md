@@ -223,11 +223,26 @@ xbottom_right = np.round((ybottom - avg_right_intercept)/avg_right_slope).astype
 
 Here's the result of the pipeline applied to all the test images included in the project:
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/lane-finding-results1.PNG">
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteCurve-result.PNG" width="50%">
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteRight-result.PNG" width="50%">
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/lane-finding-results2.PNG">
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidYellowCurve2-result.PNG" width="50%">
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidYellowCurve-result.PNG" width="50%">
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidYellowLeft-result.PNG" width="50%">
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/whiteCarLaneSwitch-result.PNG" width="50%">
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/challenge-result.PNG">
+
 
 And the three videos:
 
