@@ -35,19 +35,19 @@ First, I converted the image to *grayscale*
 
 Then I applied the *Gaussian Smoothing* filter using a kernel size of 5 to get rid of noise
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/blur_gray.jpg" width="50%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/blur_gray.jpg">
 
 After that, I used *Color Selection* to highlight the lane lines only
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/highlighted_img.jpg" width="50%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/highlighted_img.jpg">
 
 The *Canny Edge Operator* with a low threshold of 50 and  high threshold of 150 helped me detect edges
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/edges.jpg" width="50%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/edges.jpg">
 
 And through the use of a *Trapezoidal Mask* I isolated only the lane lines
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/masked_img.jpg" width="50%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/masked_img.jpg">
 
 Following, I used a *Hough Transform* to detect the lines with parameters:
 * rho = 1
@@ -56,7 +56,7 @@ Following, I used a *Hough Transform* to detect the lines with parameters:
 * min_line_len = 40 *minimum number of pixels making up a line*
 * max_line_gap = 100 *maximum gap in pixels between connectable line segments*
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/line_image.jpg" width="50%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/line_image.jpg">
 
 To draw a single line on the left and right lanes, I modified the *draw_lines()* function by separating line segments by their slope to decide which segments are part of the left line vs. the right line. During this process, I selected only those lines whose angle fell between 20 and 45 degrees, ignoring possible horizontal and vertical segments that could alter the average.
 
@@ -96,7 +96,7 @@ xbottom_right = np.round((ybottom - avg_right_intercept)/avg_right_slope).astype
 
 ```
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/final_output.jpg" width="50%">
+<img src="{{ site.url }}/assets/images/lane-finding-project/final_output.jpg">
 
 Finally, I applied the same pipeline to 3 different video streams included in the folder ```test_video_output```
 
