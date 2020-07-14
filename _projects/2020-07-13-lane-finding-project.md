@@ -7,8 +7,6 @@ tags:
   - Project
 ---
 
-## Description
-
 The goal of this project is to identify lane lines on the road. At first the pipeline is developed on a series of individual images, and later the result is applied to a video stream.
 
 The tools used are (in the following order):
@@ -19,19 +17,41 @@ The tools used are (in the following order):
 * Canny Edge Detection
 * Hough Tranform line detection
 
-The project is developed using Python and OpenCv. It can be found in the file `P1.ipynb`
+The project is developed using Python and OpenCv. You can download the full code from [GitHub](https://github.com/IacopomC/CarND-LaneLines-P1).
 
 ---
 
 ### Pipeline
 
-Following, the steps of the pipeline on a test image
+I started by reading in the test image
+<br/>
+```python
+#reading in an image
+image = mpimg.imread('test_images/solidWhiteRight.jpg')
+```
+<br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteCurve.jpg">
+<img src="{{ site.url }}/assets/images/lane-finding-project/solidWhiteCurve.jpg" width=70% align=center>
 
-First, I converted the image to *grayscale*
+<br/>
+
+Later, I converted the image to *grayscale* using the helper function
+
+```python
+def grayscale(img):
+    """Applies the Grayscale transform
+    This will return an image with only one color channel
+    but NOTE: to see the returned image as grayscale
+    (assuming your grayscaled image is called 'gray')
+    you should call plt.imshow(gray, cmap='gray')"""
+    return cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    # Or use BGR2GRAY if you read an image with cv2.imread()
+    # return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+```
 
 <img src="{{ site.url }}/assets/images/lane-finding-project/grayscale.jpg">
+
+<br/>
 
 Then I applied the *Gaussian Smoothing* filter using a kernel size of 5 to get rid of noise
 
