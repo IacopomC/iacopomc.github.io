@@ -6,15 +6,30 @@ tags:
   - Post
 ---
 
-The goal is to identify and track the position of the lane lines in a series of images. To do so, we can identify 4 useful features:
+The purpose of this post is to explain the theory behind the project [Finding Lane Lines on the Road]() and build up some intuition about the process. There won't be any snippet from the source code since we only want to build a high level understanding of why we do what we do.
+<br/>
+
+Let's always keep in mind that the goal is to identify and track the position of the lane lines in an image. So, we first ask ourselves, what useful features does a lane line have that we can use?
 
 - Color
 - Shape
 - Orientation
 - Position in the image
 
-One first approach could be trying to find the lane lines using color. To select the color we first need to think about what color actually means in the case of digital images. It means that an image is made up of a stack of three images: one each for Red, Green and Blue (also called channel). These images take values between 0 and 255.
-As it happens though, lane lines are not always the same color, and even lines of the same color under different lighting conditions (day, night, etc) may fail to be detected by our simple color selection.
+This seems like a good starting point.
+<br/>
+
+One first approach could be trying to find the lane lines using only the color. Since we know they're white, we could easily identify them in the image right?No. <br/>
+Let's first think about what color actually means in the case of digital images. It means that an image is made up of a stack of three images: one each for Red, Green and Blue (also called channels).
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-post/rgb_image.png" width="70%">
+
+<br/>
+
+These images take values between 0 and 255.<br/>
+As it happens though, lane lines are not always the same color, and even lines of the same color under different lighting conditions (day, night, etc) may fail to be detected by our simple color selection.<br/>
 Here's why we need more complex computer vision tools such as Canny Edge Detection:
 - First I convert to image to grayscale, and next I compute the gradient. The brightness of each pixel corresponds to the strength of the gradient at that point. We're going to find edges by tracing out the pixels that follow the strongest gradients.
 
