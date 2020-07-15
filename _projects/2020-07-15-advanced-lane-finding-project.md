@@ -87,7 +87,40 @@ As a first step, I applied the distortion correction to one of the test images:
 
 <br/>
 
-Then, I used a combination of color and gradient thresholds to generate a binary image by making use of the function `color_gradient_transform` in the 3rd code cell of the IPython notebook `Advanced_Lane_Lines.ipynb.ipynb` .  
+Then, I used a combination of color and gradient thresholds to generate a binary image:
+
+```python
+def color_gradient_transform(img, s_thresh=(170, 255), sx_thresh=(20, 100)):
+    img = np.copy(img)
+    # Convert to HLS color space and separate the S channel
+    hls = cv2.cvtColor(img, cv2.COLOR_RGB2HLS)
+    s_channel = hls[:,:,2]
+    # Grayscale image
+    gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    # Sobel x
+    sobelx = cv2.Sobel(gray, cv2.CV_64F, 1, 0) # Take the derivative in x
+    abs_sobelx = np.absolute(sobelx) # Absolute x derivative to accentuate lines away from horizontal
+    scaled_sobel = np.uint8(255*abs_sobelx/np.max(abs_sobelx))
+    
+    # Threshold x gradient
+    sxbinary = np.zeros_like(scaled_sobel)
+    sxbinary[(scaled_sobel >= sx_thresh[0]) & (scaled_sobel <= sx_thresh[1])] = 1
+    
+    # Threshold color channel
+    s_binary = np.zeros_like(s_channel)
+    s_binary[(s_channel >= s_thresh[0]) & (s_channel <= s_thresh[1])] = 1
+    
+    # Stack each channel
+    # color_binary = np.dstack(( np.zeros_like(sxbinary), sxbinary, s_binary)) * 255
+    
+    # Combine the two binary thresholds
+    combined_binary = np.zeros_like(sxbinary)
+    combined_binary[(s_binary == 1) | (sxbinary == 1)] = 1
+    return combined_binary
+
+test_trasf = color_gradient_transform(dist_img, s_thresh=(170, 255), sx_thresh=(20, 100))
+```
+ 
 Here's an example of my output for this step.
 
 <br/>
@@ -96,19 +129,36 @@ Here's an example of my output for this step.
 
 <br/>
 
-The code for my perspective transform includes a function called `perspective_trasform()`, which appears in the 4th code cell of the IPython notebook `Advanced_Lane_Lines.ipynb.ipynb` . This function takes as inputs an image (`img`). I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform includes a function called `perspective_trasform()` where I chose the hardcode the source and destination points in the following manner:
 
 ```python
-src = np.float32(
-    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
-    [((img_size[0] / 6) - 10), img_size[1]],
-    [(img_size[0] * 5 / 6) + 60, img_size[1]],
-    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 5), 0],
-    [(img_size[0] / 5, img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
+def perspective_trasform(image):
+    
+    img_size = (image.shape[1], image.shape[0])
+    
+    # Define source points and destination points
+    src = np.float32(
+        [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
+        [((img_size[0] / 6) - 10), img_size[1]],
+        [(img_size[0] * 5 / 6) + 60, img_size[1]],
+        [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
+    dst = np.float32(
+        [[(img_size[0] / 5), 0],
+        [(img_size[0] / 5), img_size[1]],
+        [(img_size[0] * 3 / 4), img_size[1]],
+        [(img_size[0] * 3 / 4), 0]])
+    
+    # Given src and dst points, calculate the perspective transform matrix
+    M = cv2.getPerspectiveTransform(src, dst)
+    
+    # Calculate inverse perspective matrix
+    Minv = cv2.getPerspectiveTransform(dst, src)
+    
+    # Warp the image using OpenCV warpPerspective()
+    warped = cv2.warpPerspective(image, M, img_size, flags=cv2.INTER_LINEAR)
+    
+    # Return the resulting image
+    return warped, Minv
 ```
 
 This resulted in the following source and destination points:
@@ -147,7 +197,28 @@ The 5th cell contains the code I used to detect the lane lines.
 
 <br/>
 
-The 6th cell of `Advanced_Lane_Lines.ipynb` contains the code I used to compute the *Radius of Curvature* in the function `measure_curvature_real()`.  
+Next, I measured the radius of curvature:
+
+```python
+def measure_curvature_real(ploty, left_fit_cr, right_fit_cr):
+    '''
+    Calculates the curvature of polynomial functions in meters.
+    '''
+    # Define conversions in x and y from pixels space to meters
+    ym_per_pix = 30/720 # meters per pixel in y dimension
+    xm_per_pix = 3.7/700 # meters per pixel in x dimension
+    
+    # Define y-value where we want radius of curvature
+    # We'll choose the maximum y-value, corresponding to the bottom of the image
+    y_eval = np.max(ploty)
+    
+    # Calculate the radius of curvature in meters for both lane lines. Should see values of ~1000
+    left_curverad = ((1 + (2*left_fit_cr[0]*y_eval*ym_per_pix + left_fit_cr[1])**2)**1.5) / np.absolute(2*left_fit_cr[0])
+    right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / np.absolute(2*right_fit_cr[0])
+    
+    return left_curverad, right_curverad
+```
+
 The parameters to convert from pixels to meters are based on the assumption that the lane is about 30 meters long and 3.7 meters wide. The final radius is given as the average between the right and left lane radius.
 
 Here is an example of the final result on the test image:
