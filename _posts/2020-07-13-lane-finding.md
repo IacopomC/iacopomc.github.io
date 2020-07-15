@@ -19,7 +19,7 @@ Let's always keep in mind that the goal is to identify and track the position of
 This seems like a good starting point.
 <br/>
 
-One first approach could be trying to find the lane lines using only the color. Since we know they're white, we could easily identify them in the image right?No. <br/>
+One first approach could be trying to find the lane lines using only the color. Since we know they're white, we could easily identify them in the image, right? No. <br/>
 Let's first think about what color actually means in the case of digital images. It means that an image is made up of a stack of three images: one each for Red, Green and Blue (also called channels).
 
 <br/>
@@ -28,14 +28,70 @@ Let's first think about what color actually means in the case of digital images.
 
 <br/>
 
-These images take values between 0 and 255.<br/>
-As it happens though, lane lines are not always the same color, and even lines of the same color under different lighting conditions (day, night, etc) may fail to be detected by our simple color selection.<br/>
-Here's why we need more complex computer vision tools such as Canny Edge Detection:
-- First I convert to image to grayscale, and next I compute the gradient. The brightness of each pixel corresponds to the strength of the gradient at that point. We're going to find edges by tracing out the pixels that follow the strongest gradients.
+These images take values between 0 and 255. Each of these elements represents a value of intensity of a pixel.<br/>
+As it happens though, lane lines are not always the same color, and even lines of the same color under different lighting conditions (day, night, etc) may fail to be detected by our simple color selection. And that's why we need more complex computer vision tools such as Canny Edge Detection.
+<br/>
 
-Looking at a greyscale image I see bright points, dark points and all the gray area in between. Rapid changes in brightness are where we find the edges. An image is just a mathematical function of x and y, so I can perform mathematical operations on it like a derivative. Since images are bidimensional, it makes sense to take the derivative with respect to x and y simultaneously. This is what's called a gradient and by computing it I'm calculating how fast pixel values are changing at each point in an image and in which direction they're changing most rapidly.
+The idea of using color selection is not wrong per se, we just have to see it as part of a bigger picture. Let's take a step back, and start from the beginning.
 
-Computing the gradient gives us thick edges, with the canny algorithm we'll thin out those edges to find just the individual pixels that follow the strongest gradient.
+#### Converting to grayscale
+
+At first, we convert the image to *grayscale*. This way, all bright colors will be white and more easily detectable.
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/grayscale.jpg" width="70%">
+
+#### Gaussian Smoothing Filter
+
+Then, we apply a *Gaussian Smoothing Filter* to get rid of the noise.
+
+What does a smoothing filter do??
+
+As a result, the image will appear (to our eyes) slightly more blurry.
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/blur_gray.jpg" width="70%">
+
+#### Color selection
+
+That's when we can finally isolate the white pixels of the lanes by defining a threshold for each channel. Basically, what we want is a black image where only the white pixels survived.
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/highlighted_img.jpg" width="70%">
+
+#### Canny Edge Operator
+
+Looking at a grayscale image I see bright points, dark points and all the gray area in between. Rapid changes in brightness are where we find the edges. An image is just a mathematical function of x and y, so I can perform mathematical operations on it like a derivative (that in this case is essentially the value difference from pixel to pixel). Since images are bidimensional, it makes sense to take the derivative with respect to x and y simultaneously. This is what's called a gradient and by computing it I'm calculating how fast pixel values are changing at each point in an image and in which direction they're changing most rapidly.
+<br/>
+
+On the left is the gradient in the x direction and on the right in the y direction.
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-post/x_gradient.jpg" width="70%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/y_gradient.jpg" width="70%">
+
+<br/>
+
+The brightness of each pixel corresponds to the magnitude of the gradient at that point. Computing the gradient gives us thick edges, what we want to do is to thin out those edges to find just the individual pixels that follows the strongest gradient, and then tracing them all out. How do we do that?
+<br/>
+
+We select a *high threshold* first, and we keep only those pixels whose value is above this level. Next, the pixels with value between the *high threshold* and the *low threshold* as long as they're connected with strong edges.
+<br/>
+
+As a result, we obtain a *binary image* with white pixels along the edges and black everywhere else
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/edges.jpg" width="70%">
+
+<br/>
+
+The pixels value varies between 0 and 255, hence the derivatives will be in the tens or hundres. A reasonable *low-high threshold* ratio is 1:2 or 1:3.
+
+#### Region Selection
+
+We can assume that the front facing camera that took the image is always in the same position, hence the lanes will always appear in the same area. We can take advantage of this to consider only the pixels in the region of our interest by creating and applying a mask.
+
+#### Hough Transform
 
 We've taken a greyscale image and using edge detection I turned it into an image full of dots representing edges in the original image. Let's keep in mind that we're looking for lines. To find lines I need to adopt a model of a line and then fit that model to the assortment of dots in my edge detected image. Given that an image is just a function of x and y, I can use the equation of a line y = mx + q. To find the line that passes through all the points making up a lane line I use a Hough Transform.
 
