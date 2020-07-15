@@ -63,6 +63,7 @@ That's when we can finally isolate the white pixels of the lanes by defining a t
 <img src="{{ site.url }}/assets/images/lane-finding-project/highlighted_img.jpg" width="70%">
 
 #### Canny Edge Operator
+
 Looking at a grayscale image I see bright points, dark points and all the gray area in between. Rapid changes in brightness are where we find the edges.
 <br/>
 
@@ -83,7 +84,7 @@ The brightness of each pixel corresponds to the magnitude of the gradient at tha
 
 <br/>
 
-We select a *high threshold* first, and we keep only those pixels whose value is above this level. Next, the pixels with value between the *high threshold* and the *low threshold* as long as they're connected with strong edges.
+We make use of a *high* and *low threshold*. At first, we select a *high threshold* and we keep only those pixels whose value is above this level. Next, the pixels with value between the *high threshold* and the *low threshold* are included as long as they're connected with strong edges.
 
 <br/>
 
@@ -99,23 +100,49 @@ The pixels value varies between 0 and 255, hence the derivatives will be in the 
 
 #### Region Selection
 
-We can assume that the front facing camera that took the image is always in the same position, hence the lanes will always appear in the same area. We can take advantage of this to consider only the pixels in the region of our interest by creating and applying a mask.
+We can assume that the front facing camera that took the image is always in the same position, hence the lanes will always appear in the same area. We can take advantage of this to consider only the pixels in the region of our interest by creating and applying a mask. This way, we can get rid of possible pixels that would alter our search for lane lines.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-project/masked_img.jpg" width="70%">
 
 #### Hough Transform
 
-We've taken a greyscale image and using edge detection I turned it into an image full of dots representing edges in the original image. Let's keep in mind that we're looking for lines. To find lines I need to adopt a model of a line and then fit that model to the assortment of dots in my edge detected image. Given that an image is just a function of x and y, I can use the equation of a line y = mx + q. To find the line that passes through all the points making up a lane line I use a Hough Transform.
+We've taken a greyscale image and using edge detection we turned it into an image full of dots representing edges in the original image. Let's keep in mind that we're looking for lines.
 
-In Hough space, I can represent my "x vs. y" line as a point in "m vs. b" instead. The Hough Transform is just the conversion from image space to Hough space. So, the characterization of a line in image space will be a single point at the position (m, b) in Hough space.
+<br/>
 
-At the same time, a single point in image space has many possible lines that pass through it, but not just any lines, only those with particular combinations of the m and b parameters. Rearranging the equation of a line, we find that a single point (x,y) corresponds to the line b = y - xm. A single point in Image Space represents a line in Hough space.
+To find lines I need to adopt a model of a line and then fit that model to the assortment of dots in my edge detected image.
+<br/>
+
+Given that an image is just a function of x and y, as my model I can use the equation of a line *y = mx + b*, and to find the line that passes through all the points making up a lane line I use a *Hough Transform*.
+
+<br/>
+
+The Hough Transform is just the conversion from Image Space - where I use (x,y) coordinates - to Hough Space - where I use (m, b) coordinates. So, the characterization of a line in Image Space will be a single point at the position (m, b) in Hough space.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-post/image_space.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/hough_space.PNG" width="45%">
+
+<br/>
+
+At the same time, a single point in Image Space has many possible lines that pass through it, but not just any lines, only those with particular combinations of the m and b parameters. Rearranging the equation of a line, we find that a single point (x,y) corresponds to the line *b = y - xm*. A single point in Image Space represents a line in Hough space.
+
+<br/>
 
 What does the intersection point of the two lines in Hough space correspond to in image space?
-A line in Image space that passes through both points corresponding to the two lines
+A line in Image space that passes through both points corresponding to the two lines.
 
-So our strategy to find lines in Image space will be to look for interstecting lines in Hough Space. We do this by dividing Housh Space into a grid and define intersecting lines as all lines passing through a given grid a cell.
+<br/>
 
-The problem raises with vertical lines because they have infinite slope in the m,q representation. So, we need a new parametrization: polar coordinates.
-rho = the distance of the line from the origin
-theta = the angle away from the horizontal
+So our strategy to find lines in Image Space will be to look for many intersecting lines in Hough Space, because it means we have found a collection of points in Image Space (each line in Hough Space is a point in Image Space) that belong to the same line (in Image Space). How do we do that? By dividing the Hough Space into a grid and define intersecting lines as all lines passing through a given grid cell.
 
-Now each point in image space corresponds to a sign curve in Hough Space (the intersection of the sign curves in Hough Space still represents my line in Image Space).
+<br/>
+
+The problem raises with vertical lines because they have infinite slope in the (m,b) representation. So, we need a new parametrization: *polar coordinates*, where
+- rho = the distance of the line from the origin
+- theta = the angle away from the horizontal
+
+Now each point in Image Space corresponds to a sign curve in Hough Space but the intersection of the sign curves in Hough Space still represents my line in Image Space.
