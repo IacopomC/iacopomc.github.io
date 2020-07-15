@@ -96,7 +96,7 @@ As a result, we obtain a *binary image* with white pixels along the edges and bl
 
 <br/>
 
-The pixels value varies between 0 and 255, hence the derivatives will be in the tens or hundres. A reasonable *low-high threshold* ratio is 1:2 or 1:3.
+The pixels value varies between 0 and 255, hence the derivatives will be in the tens or hundreds. A reasonable *low-high threshold* ratio is 1:2 or 1:3.
 
 #### Region Selection
 
@@ -108,7 +108,7 @@ We can assume that the front facing camera that took the image is always in the 
 
 #### Hough Transform
 
-We've taken a greyscale image and using edge detection we turned it into an image full of dots representing edges in the original image. Let's keep in mind that we're looking for lines.
+We've taken a grayscale image and using edge detection we turned it into an image full of dots representing edges in the original image. Let's keep in mind that we're looking for lines.
 
 <br/>
 
@@ -160,8 +160,8 @@ The problem raises with vertical lines because they have infinite slope in the (
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/polar_coordinates.PNG" width="45%">
-<img src="{{ site.url }}/assets/images/lane-finding-post/rho_theta.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/polar_coordinates.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/rho_theta.jpg" width="45%">
 
 <br/>
 
