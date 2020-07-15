@@ -74,7 +74,6 @@ and obtained this result:
 <br/>
 
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-project/cal_original.jpg" width="45%">
-
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-project/cal_corrected.jpg" width="45%">
 
 ---
@@ -162,6 +161,8 @@ Here is an example of the final result on the test image:
 ### Results
 
 Here's the result of the pipeline applied to all the test images included in the project:
+
+<br/>
 
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-project/straight_lines1.jpg" width="45%">
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-project/straight_lines2.jpg" width="45%">
