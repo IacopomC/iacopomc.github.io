@@ -24,7 +24,7 @@ Let's first think about what color actually means in the case of digital images.
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/rgb_image.png" width="70%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/rgb_image.png" width="80%">
 
 <br/>
 
@@ -37,6 +37,7 @@ The idea of using color selection is not wrong per se, we just have to see it as
 #### Converting to grayscale
 
 At first, we convert the image to *grayscale*. This way, all bright colors will be white and more easily detectable.
+
 <br/>
 
 <img src="{{ site.url }}/assets/images/lane-finding-project/grayscale.jpg" width="70%">
@@ -48,6 +49,7 @@ Then, we apply a *Gaussian Smoothing Filter* to get rid of the noise.
 What does a smoothing filter do??
 
 As a result, the image will appear (to our eyes) slightly more blurry.
+
 <br/>
 
 <img src="{{ site.url }}/assets/images/lane-finding-project/blur_gray.jpg" width="70%">
@@ -55,30 +57,38 @@ As a result, the image will appear (to our eyes) slightly more blurry.
 #### Color selection
 
 That's when we can finally isolate the white pixels of the lanes by defining a threshold for each channel. Basically, what we want is a black image where only the white pixels survived.
+
 <br/>
 
 <img src="{{ site.url }}/assets/images/lane-finding-project/highlighted_img.jpg" width="70%">
 
 #### Canny Edge Operator
+Looking at a grayscale image I see bright points, dark points and all the gray area in between. Rapid changes in brightness are where we find the edges.
+<br/>
 
-Looking at a grayscale image I see bright points, dark points and all the gray area in between. Rapid changes in brightness are where we find the edges. An image is just a mathematical function of x and y, so I can perform mathematical operations on it like a derivative (that in this case is essentially the value difference from pixel to pixel). Since images are bidimensional, it makes sense to take the derivative with respect to x and y simultaneously. This is what's called a gradient and by computing it I'm calculating how fast pixel values are changing at each point in an image and in which direction they're changing most rapidly.
+An image is just a mathematical function of x and y, so I can perform mathematical operations on it like a derivative (that in this case is essentially the value difference from pixel to pixel), and since images are bidimensional, it makes sense to take the derivative with respect to x and y simultaneously. This is what's called a gradient and by computing it I'm calculating how fast pixel values are changing at each point in an image and in which direction they're changing most rapidly.
+
 <br/>
 
 On the left is the gradient in the x direction and on the right in the y direction.
+
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/x_gradient.jpg" width="70%">
-<img src="{{ site.url }}/assets/images/lane-finding-post/y_gradient.jpg" width="70%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/x_gradient.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/y_gradient.jpg" width="45%">
 
 <br/>
 
 The brightness of each pixel corresponds to the magnitude of the gradient at that point. Computing the gradient gives us thick edges, what we want to do is to thin out those edges to find just the individual pixels that follows the strongest gradient, and then tracing them all out. How do we do that?
+
 <br/>
 
 We select a *high threshold* first, and we keep only those pixels whose value is above this level. Next, the pixels with value between the *high threshold* and the *low threshold* as long as they're connected with strong edges.
+
 <br/>
 
 As a result, we obtain a *binary image* with white pixels along the edges and black everywhere else
+
 <br/>
 
 <img src="{{ site.url }}/assets/images/lane-finding-project/edges.jpg" width="70%">
