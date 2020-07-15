@@ -71,21 +71,31 @@ def distortion_correction(image, mtx, dist):
 
 and obtained this result:
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/cal_original.jpg" width="70%">
+<br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/cal_corrected.jpg" width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/cal_original.jpg" width="45%">
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/cal_corrected.jpg" width="45%">
 
 ---
 ### Pipeline
 
 As a first step, I applied the distortion correction to one of the test images:
 
+<br/>
+
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test_cal.jpg" width="70%">
+
+<br/>
 
 Then, I used a combination of color and gradient thresholds to generate a binary image by making use of the function `color_gradient_transform` in the 3rd code cell of the IPython notebook `Advanced_Lane_Lines.ipynb.ipynb` .  
 Here's an example of my output for this step.
 
+<br/>
+
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test_trasf.jpg" width="70%">
+
+<br/>
 
 The code for my perspective transform includes a function called `perspective_trasform()`, which appears in the 4th code cell of the IPython notebook `Advanced_Lane_Lines.ipynb.ipynb` . This function takes as inputs an image (`img`). I chose the hardcode the source and destination points in the following manner:
 
@@ -113,7 +123,11 @@ This resulted in the following source and destination points:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
+<br/>
+
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test_warped.jpg" width="70%">
+
+<br/>
 
 The result of the previous steps is a binary image where the lane lines stand out clearly. However, I have to decide which pixels are part of the lines and which belongs to the left or right lane.  
 To do so, I first compute the histogram of the peaks of where the binary activations occur across the image.
@@ -128,12 +142,18 @@ I used a *Sliding Window* placed around the line centers to find and follow the 
 
 The 5th cell contains the code I used to detect the lane lines.
 
+<br/>
+
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-project/fit_img.jpg" width="70%">
+
+<br/>
 
 The 6th cell of `Advanced_Lane_Lines.ipynb` contains the code I used to compute the *Radius of Curvature* in the function `measure_curvature_real()`.  
 The parameters to convert from pixels to meters are based on the assumption that the lane is about 30 meters long and 3.7 meters wide. The final radius is given as the average between the right and left lane radius.
 
 Here is an example of the final result on the test image:
+
+<br/>
 
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-project/final_img.jpg" width="70%">
 
