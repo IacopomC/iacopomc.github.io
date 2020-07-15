@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Project: Finding Lane Lines on the Road"
+title: "Finding Lane Lines on the Road"
 categories:
   - projects
 tags:
