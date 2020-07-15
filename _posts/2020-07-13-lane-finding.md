@@ -123,8 +123,8 @@ The Hough Transform is just the conversion from Image Space - where I use (x,y) 
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/image_space.PNG" width="45%">
-<img src="{{ site.url }}/assets/images/lane-finding-post/hough_space.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/line_image_space.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/point_hough_space.PNG" width="45%">
 
 <br/>
 
@@ -132,8 +132,18 @@ At the same time, a single point in Image Space has many possible lines that pas
 
 <br/>
 
+<img src="{{ site.url }}/assets/images/lane-finding-post/line_hough_space.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/point_image_space.PNG" width="45%">
+
+<br/>
+
 What does the intersection point of the two lines in Hough space correspond to in image space?
-A line in Image space that passes through both points corresponding to the two lines.
+A line in Image Space that passes through both points corresponding to the two lines.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-post/intersection_hough_space.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/line_two_points_image_space.PNG" width="45%">
 
 <br/>
 
@@ -141,8 +151,18 @@ So our strategy to find lines in Image Space will be to look for many intersecti
 
 <br/>
 
+<img src="{{ site.url }}/assets/images/lane-finding-post/full_line_image_space.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/grid_hough_space.PNG" width="45%">
+
+<br/>
+
 The problem raises with vertical lines because they have infinite slope in the (m,b) representation. So, we need a new parametrization: *polar coordinates*, where
-- rho = the distance of the line from the origin
-- theta = the angle away from the horizontal
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-post/polar_coordinates.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/rho_theta.PNG" width="45%">
+
+<br/>
 
 Now each point in Image Space corresponds to a sign curve in Hough Space but the intersection of the sign curves in Hough Space still represents my line in Image Space.
