@@ -152,7 +152,7 @@ So our strategy to find lines in Image Space will be to look for many intersecti
 <br/>
 
 <img src="{{ site.url }}/assets/images/lane-finding-post/full_line_image_space.PNG" width="45%">
-<img src="{{ site.url }}/assets/images/lane-finding-post/grid_hough_space.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/grid_hough_space.png" width="45%">
 
 <br/>
 
