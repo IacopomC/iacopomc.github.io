@@ -70,7 +70,7 @@ To get a sense of what’s wrong, let's think about what a single spot of light 
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/out_focus_dot.PNG" width="50%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/out_focus_dot.PNG" width="40%">
 
 <br/>
 
