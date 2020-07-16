@@ -51,7 +51,7 @@ The basic idea is to smooth out the whole image by replacing every pixel value b
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/filter.PNG" width="70%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/filter.PNG" width="60%">
 
 <br/>
 
@@ -86,7 +86,7 @@ And that's why we need a *Gaussian Smoothing Filter*, which looks more like this
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/gaussian_filter.PNG" width="70%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/gaussian_filter.png" width="70%">
 
 <br/>
 
@@ -116,8 +116,8 @@ Let's recall that an image is a function. I can look at its 3D plot where on the
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/original_gray_img.jpg" width="45%">
-<img src="{{ site.url }}/assets/images/lane-finding-post/3d_image.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/original_gray_img.jpg" width="35%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/3d_image.PNG" width="55%">
 
 <br/>
 
