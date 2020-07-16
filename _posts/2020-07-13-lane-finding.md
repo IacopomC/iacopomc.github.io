@@ -44,11 +44,53 @@ At first, we convert the image to *grayscale*. This way, all bright colors will 
 
 #### Gaussian Smoothing Filter
 
-Then, we apply a *Gaussian Smoothing Filter* to get rid of the noise.
+Then, we apply a *Gaussian Smoothing Filter* to get rid of the noise. How does it work?
+<br/>
 
-What does a smoothing filter do??
+The basic idea is to smooth out the whole image by replacing every pixel value based on the value of its neighbors.
 
-As a result, the image will appear (to our eyes) slightly more blurry.
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-post/filter.PNG" width="70%">
+
+<br/>
+
+The first intuition - as shown in the image above - could be to replace every value with the average of all the values in its neighborhood. We have to make two assumption for the *moving average* to work:
+
+- The *true* value of pixels are similar to the *true* value of pixels nearby.
+- The noise added to each pixel is done independently.
+
+This doesn't hold for every image.
+<br/>
+This is also called *box filtering* because it looks as if we're passing a "squared" filter all over our image. But squares aren't smooth, and filtering an image with a filter that isn't smooth won't give me the blurry effect I'm looking for.
+
+<br/>
+
+To get a sense of what’s wrong, let's think about what a single spot of light viewed by an out of focus camera would look like:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-post/out_focus_dot.PNG" width="70%">
+
+<br/>
+
+It looks like its values are higher in the middle, falling off to the edges. Something like this:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-post/gaussian_distribution.jpg" width="70%">
+
+<br/>
+
+And that's why we need a *Gaussian Smoothing Filter*, which looks more like this:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-post/gaussian_filter.PNG" width="70%">
+
+<br/>
+
+As a result, the image will appear slightly more blurry.
 
 <br/>
 
