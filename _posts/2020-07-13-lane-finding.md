@@ -51,7 +51,7 @@ The basic idea is to smooth out the whole image by replacing every pixel value b
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/filter.PNG" width="60%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/filter.PNG" width="70%">
 
 <br/>
 
@@ -70,7 +70,7 @@ To get a sense of what’s wrong, let's think about what a single spot of light 
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/out_focus_dot.PNG" width="70%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/out_focus_dot.PNG" width="60%">
 
 <br/>
 
