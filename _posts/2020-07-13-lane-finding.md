@@ -238,3 +238,7 @@ The problem raises with vertical lines because they have infinite slope in the (
 <br/>
 
 Now each point in Image Space corresponds to a sign curve in Hough Space but the intersection of the sign curves in Hough Space still represents my line in Image Space.
+
+<br/>
+
+One final concern would be: will this "*voting system*" work even if we have noise? Yes, because noise and clutter cast votes too, but their vote should be "*inconstistent*" with the majority of good votes.
