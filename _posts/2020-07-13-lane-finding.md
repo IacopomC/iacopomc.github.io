@@ -106,10 +106,30 @@ That's when we can finally isolate the white pixels of the lanes by defining a t
 
 #### Canny Edge Operator
 
-Looking at a grayscale image I see bright points, dark points and all the gray area in between. Rapid changes in brightness are where we find the edges.
+Looking at a grayscale image I see bright points, dark points and all the gray area in between. Edges seem to occur at "*change boundaries*" that are related to shape or illumination.
 <br/>
 
-An image is just a mathematical function of x and y, so I can perform mathematical operations on it like a derivative (that in this case is essentially the value difference from pixel to pixel), and since images are bidimensional, it makes sense to take the derivative with respect to x and y simultaneously. This is what's called a gradient and by computing it I'm calculating how fast pixel values are changing at each point in an image and in which direction they're changing most rapidly.
+What do I compute to figure out that a pixel is part of an edge?
+<br/>
+
+Let's recall that an image is a function. I can look at its 3D plot where on the Z axis is the pixels value (or its intensity)
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/lane-finding-post/original_gray_img.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/3d_image.PNG" width="45%">
+
+<br/>
+
+Edges look like steep cliffs, steep changes in our image intensity function.
+<br/>
+
+The basic idea to identify edges is to look for a neighborhood with strong signs of change. When we look at it like that two questions come to mind:
+
+- how big is the neighborhood?
+- how do I detect the change?
+
+When I deal with functions, *change* is gonna be about *derivatives*. An image is just a mathematical function of x and y, so I can perform mathematical operations on it like a derivative (that in this case is essentially the value difference from pixel to pixel), and since images are bidimensional, it makes sense to take the derivative with respect to x and y simultaneously. This is what's called a gradient and by computing it I'm calculating how fast pixel values are changing at each point in an image and in which direction they're changing most rapidly.
 
 <br/>
 
@@ -122,11 +142,21 @@ On the left is the gradient in the x direction and on the right in the y directi
 
 <br/>
 
-The brightness of each pixel corresponds to the magnitude of the gradient at that point. Computing the gradient gives us thick edges, what we want to do is to thin out those edges to find just the individual pixels that follows the strongest gradient, and then tracing them all out. How do we do that?
+The brightness of each pixel corresponds to the magnitude of the gradient at that point. How do we calculate this gradient? We run some filters, just like we did above with the *Guassian Smoothing Filter* but, this time, the values in the grid will be different. The *Sobel Operator* is a good example to calculate both x and y derivatives.
 
 <br/>
 
-We make use of a *high* and *low threshold*. At first, we select a *high threshold* and we keep only those pixels whose value is above this level. Next, the pixels with value between the *high threshold* and the *low threshold* are included as long as they're connected with strong edges.
+Computing the gradient gives us thick edges, what we want to do is to thin out those edges to find just the individual pixels that follows the strongest gradient, and then tracing them all out. How do we do that?
+
+<br/>
+
+We threshold the gradient: at first, we select a *high threshold* and we keep only those pixels whose value is above this level. Next, we apply something called *Non-maximum suppression* or *thinning*:
+<br/>
+if we have a bunch of points that exceed our threshold locally - the thick lines we found above are made up of multiple points one next to the other - we only want to pull out those that exceed it the most, our peaks. If we crossed these lines transversally we wouldn't find a flat surface because the values of the pixels vary even when moving perpendicularly to the line. We basically select the highest value for each tiny portion of the line and the result will be a much thinner line.
+
+<br/>
+
+Unfortunately, not all pixels survive the thresholding and we might miss some lines in the image. That's where the *Canny Edge Detector* goes the extra mile. We apply a *low threshold* to find weak but plausible edge pixels. Finally, we extend those strong edges following the weak pixels. The pixels with value between the *high threshold* and the *low threshold* are included as long as they're connected with strong edges.
 
 <br/>
 
