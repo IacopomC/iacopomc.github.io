@@ -71,7 +71,7 @@ So, we take multiple pictures of our chessboard against a flat surface
 
 <br/>
 
-Then we'll be able to detect any distortion by looking at the difference between the size and shape of these squares in these images and the size and shape that they actually are. We then create a transform that maps these distorted points to undistorted points to undistort any images.
+This way, we'll be able to detect any distortion by looking at the difference between the size and shape of these squares in these images and the size and shape that they actually are. We then create a transform that maps these distorted points to undistorted points to correct any images.
 
 <br/>
 
@@ -79,7 +79,7 @@ Then we'll be able to detect any distortion by looking at the difference between
 
 <br/>
 
-The transformation from 3D objects in the real world into a 2D image in cameras is done using a matrix called *camera matrix*. That's what we need to calculate to correct for distortion.
+It's recommended to use at least 20 images to obtain a reliable calibration.
 
 #### Color Transform and Gradient
 
