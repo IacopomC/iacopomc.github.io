@@ -65,9 +65,9 @@ So, we take multiple pictures of our chessboard against a flat surface
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/calibration4.jpg" width="30%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/calibration11.jpg" width="30%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/calibration18.jpg" width="30%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/chessboard1.jpg" width="30%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/chessboard2.jpg" width="30%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/chessboard3.jpg" width="30%">
 
 <br/>
 
