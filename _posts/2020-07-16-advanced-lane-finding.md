@@ -81,16 +81,36 @@ This way, we'll be able to detect any distortion by looking at the difference be
 
 It's recommended to use at least 20 images to obtain a reliable calibration.
 
+#### Lane Curvature and Vehicle Position
+Great! Now, we prepared our images. Let's keep in mind what our goal is: detect lane lines, measure their curvature and the vehicle position with respect to the center.
+
+<br/>
+
+We can start by tackling the problem of extracting one really important piece of information from our images: the *lane curvature*. This is important because to steer a car we need to know how much the lane is curving (together with the speed and dynamics of the car).
+
+<br/>
+
+To calculate the curvature of a lane line, we're going to fit a 2nd degree polynomial to that line: for a lane line that is close to vertical, we can fit a line using this formula:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/lane_line_fit_eq.PNG" width="30%">
+
+<br/>
+
+where *A* gives us the curvature we're looking for, *B* gives us the direction that the line is pointing towards, and *C* gives us the position of the line based on how far away it is from the left side of the image (y = 0).
+
+#### Perspective Transform
+Now we know what we need, but how are we going to find it? The first step will be the *Perspective Transform*. Why are we interested in doing a perspective transform? Because ultimately we want to measure the curvature of the lines, and to do that, we need to transform to a top-down view, that's when our lane lines will look vertical and we will be able to fit them with the formula above.
+
 #### Color Transform and Gradient
 
 
-#### Perspective Transform
-To steer a car we need to know how much the lane is curving. To do that, we need to map out the lane in our camera images after transforming them to a different perspective (looking down at the road from above).
+
 
 #### Find Lane Boundary
 
 
-#### Curvature of the Lane and Vehicle Position
 
 
 #### Warp Lane Boundaries Back
