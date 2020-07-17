@@ -75,7 +75,7 @@ This way, we'll be able to detect any distortion by looking at the difference be
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/point_mapping.PNG" width="30%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/point_mapping.PNG" width="70%">
 
 <br/>
 
@@ -94,14 +94,38 @@ To calculate the curvature of a lane line, we're going to fit a 2nd degree polyn
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/lane_line_fit_eq.PNG" width="30%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/lane_line_fit_eq.PNG" width="70%">
 
 <br/>
 
 where *A* gives us the curvature we're looking for, *B* gives us the direction that the line is pointing towards, and *C* gives us the position of the line based on how far away it is from the left side of the image (y = 0).
 
 #### Perspective Transform
-Now we know what we need, but how are we going to find it? The first step will be the *Perspective Transform*. Why are we interested in doing a perspective transform? Because ultimately we want to measure the curvature of the lines, and to do that, we need to transform to a top-down view, that's when our lane lines will look vertical and we will be able to fit them with the formula above.
+Now we know what we need, but how are we going to find it? We'll be using the *Perspective Transform*. A perspective transform maps the points in a given image to different, image points with a new perspective.
+<br/>
+
+It essentially warps the image by dragging points towards or away from the camera to change the apparent perspective.
+
+<br/>
+
+Why are we interested in doing a perspective transform? Because ultimately we want to measure the curvature of the lines, and to do that, we need to transform to a top-down view, that's when our lane lines will look parallel and we will be able to fit them with the formula above.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/regular_view_road.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/top_down_view_road.jpg" width="45%">
+
+<br/>
+
+The process of applying a perspective transform is similar to what we did to correct image distortion, but this time we want to map the points in our image to different desired image points with a new perspective.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/perspective_transform_points.jpg" width="70%">
+
+<br/>
+
+Doing a the bird's eye-view transform is especially useful in this case because it will allow us to match our car location with a map.
 
 #### Color Transform and Gradient
 
