@@ -94,7 +94,7 @@ To calculate the curvature of a lane line, we're going to fit a 2nd degree polyn
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/lane_line_fit_eq.PNG" width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/lane_line_fit_eq.PNG" width="40%">
 
 <br/>
 
