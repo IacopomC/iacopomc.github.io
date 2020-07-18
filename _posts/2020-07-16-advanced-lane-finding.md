@@ -112,8 +112,8 @@ Why are we interested in doing a perspective transform? Because ultimately we wa
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/regular_view_road.jpg" width="45%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/top_down_view_road.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/regular_view_road.jpg" width="48%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/top_down_view_road.jpg" width="48%">
 
 <br/>
 
