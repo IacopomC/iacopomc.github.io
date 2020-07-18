@@ -75,7 +75,7 @@ This way, we'll be able to detect any distortion by looking at the difference be
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/point_mapping.PNG" width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/point_mapping.PNG">
 
 <br/>
 
