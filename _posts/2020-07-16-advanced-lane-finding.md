@@ -33,8 +33,8 @@ Distortion changes what the shape and size of these 3D objects appear to be.
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/distorted_img_1.jpg" width="45%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/distorted_img_2.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/distorted_img_1.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/distorted_img_2.jpg" width="49%">
 
 <br/>
 
@@ -48,8 +48,8 @@ To undistort the images we're going to use the equations:
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/radial_distortion_eq.PNG" width="45%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/tangential_distortion_eq.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/radial_distortion_eq.PNG" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/tangential_distortion_eq.PNG" width="49%">
 
 <br/>
 
