@@ -232,7 +232,7 @@ The problem raises with vertical lines because they have infinite slope in the (
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/polar_coordinates.PNG" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/polar_coordinates_eq.PNG" width="45%">
 <img src="{{ site.url }}/assets/images/lane-finding-post/rho_theta.PNG" width="45%">
 
 <br/>
