@@ -121,7 +121,7 @@ The process of applying a perspective transform is similar to what we did to cor
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/perspective_transform_points.jpg" width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/perspective_transform_points.jpg">
 
 <br/>
 
