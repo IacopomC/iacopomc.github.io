@@ -137,8 +137,8 @@ On the left is the gradient in the x direction and on the right in the y directi
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/lane-finding-post/x_gradient.jpg" width="45%">
-<img src="{{ site.url }}/assets/images/lane-finding-post/y_gradient.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/x_gradient.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/lane-finding-post/y_gradient.jpg" width="49%">
 
 <br/>
 
