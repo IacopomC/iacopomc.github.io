@@ -117,24 +117,24 @@ And through the use of a *Trapezoidal Mask* I isolated only the lane lines
 def region_of_interest(img, vertices):
     """
     Applies an image mask.
-    
+
     Only keeps the region of the image defined by the polygon
     formed from `vertices`. The rest of the image is set to black.
     `vertices` should be a numpy array of integer points.
     """
     #defining a blank mask to start with
     mask = np.zeros_like(img)   
-    
+
     #defining a 3 channel or 1 channel color to fill the mask with depending on the input image
     if len(img.shape) > 2:
         channel_count = img.shape[2]  # i.e. 3 or 4 depending on your image
         ignore_mask_color = (255,) * channel_count
     else:
         ignore_mask_color = 255
-        
+
     #filling pixels inside the polygon defined by "vertices" with the fill color    
     cv2.fillPoly(mask, vertices, ignore_mask_color)
-    
+
     #returning the image only where mask pixels are nonzero
     masked_image = cv2.bitwise_and(img, mask)
     return masked_image
@@ -161,14 +161,14 @@ Following, I used a *Hough Transform* to detect the lines with parameters:
 def hough_lines(img, ytop, rho, theta, threshold, min_line_len, max_line_gap):
     """
     `img` should be the output of a Canny transform.
-        
+
     Returns an image with hough lines drawn.
     """
     lines = cv2.HoughLinesP(img, rho, theta, threshold, np.array([]), minLineLength=min_line_len, maxLineGap=max_line_gap)
     line_img = np.zeros((img.shape[0], img.shape[1], 3), dtype=np.uint8)
     draw_lines(line_img, lines, ytop)
     return line_img
-    
+
 # Use Hough Transform to detect lines in the mask image
 line_image = hough_lines(masked_img, 320, rho, theta, threshold, min_line_len, max_line_gap)
 ```
@@ -265,6 +265,6 @@ Potential shortcomings would occur with changing in lighting, presence of shadow
 
 ### Possible improvements
 
-A possible improvement would be to predict the most probable area where the lines will be based on the previous frame rather than recomputing the whole pipeline for each frame.
+- Predict the most probable area where the lines will be based on the previous frame rather than recomputing the whole pipeline for each frame.
 
-Another potential improvement could be to use a smoothing method to get rid of the flickering effect of the lines between one frame and another
+- Use a smoothing method to get rid of the flickering effect of the lines between one frame and another
