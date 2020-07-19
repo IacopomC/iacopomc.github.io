@@ -90,7 +90,7 @@ We can start by tackling the problem of extracting one really important piece of
 
 <br/>
 
-To calculate the curvature of a lane line, we're going to fit a 2nd degree polynomial to that line: for a lane line that is close to vertical, we can fit a line using this formula:
+To calculate the curvature of a lane line, we're going to fit a 2nd degree polynomial to that line. For a lane line that is close to vertical, we can fit a line using this formula:
 
 <br/>
 
@@ -101,14 +101,14 @@ To calculate the curvature of a lane line, we're going to fit a 2nd degree polyn
 where *A* gives us the curvature we're looking for, *B* gives us the direction that the line is pointing towards, and *C* gives us the position of the line based on how far away it is from the left side of the image (y = 0).
 
 #### Perspective Transform
-Now we know what we need, but how are we going to find it? We'll be using the *Perspective Transform*. A perspective transform maps the points in a given image to different, image points with a new perspective.
+Now we know what we need, but how are we going to find it? We'll be using the *Perspective Transform*. A *Perspective Transform* maps the points in a given image to different, image points with a new perspective.
 <br/>
 
 It essentially warps the image by dragging points towards or away from the camera to change the apparent perspective.
 
 <br/>
 
-Why are we interested in doing a perspective transform? Because ultimately we want to measure the curvature of the lines, and to do that, we need to transform to a top-down view, that's when our lane lines will look parallel and we will be able to fit them with the formula above.
+Why are we interested in doing a *Perspective Transform*? Because ultimately we want to measure the curvature of the lines, and to do that, we need to transform to a top-down view, that's when our lane lines will look parallel and we will be able to fit them with the formula above.
 
 <br/>
 
