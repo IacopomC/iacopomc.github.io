@@ -6,7 +6,7 @@ tags:
   - Post
 ---
 
-The purpose of this post is to explain the theory behind the project [Finding Lane Lines on the Road](https://iacopomc.github.io/projects/2020-07-13-lane-finding-project/) and build up some intuition about the process. There won't be any snippet from the source code since we only want to build a high level understanding of why we do what we do.
+The purpose of this post is to explain the theory behind the project [Finding Lane Lines on the Road](https://iacopomc.github.io/projects/2020-07-13-lane-finding-project/) and build up some intuition about the process. There won't be any snippets from the source code since we only want to build a high level understanding of why we do what we do.
 <br/>
 
 Let's always keep in mind that the goal is to identify and track the position of the lane lines in an image. So, we first ask ourselves, what useful features does a lane line have that we can use?
@@ -55,7 +55,7 @@ The basic idea is to smooth out the whole image by replacing every pixel value b
 
 <br/>
 
-The first intuition - as shown in the image above - could be to replace every value with the average of all the values in its neighborhood. We have to make two assumption for the *moving average* to work:
+At first glance - as shown in the image above - we could replace every value with the average of all the values in its neighborhood. We have to make two assumptions for the *moving average* to work:
 
 - The *true* value of pixels are similar to the *true* value of pixels nearby.
 - The noise added to each pixel is done independently.
@@ -160,7 +160,7 @@ Unfortunately, not all pixels survive the thresholding and we might miss some li
 
 <br/>
 
-As a result, we obtain a *binary image* with white pixels along the edges and black everywhere else
+As a result, we obtain a *binary image* with white pixels along the edges and black everywhere else.
 
 <br/>
 
