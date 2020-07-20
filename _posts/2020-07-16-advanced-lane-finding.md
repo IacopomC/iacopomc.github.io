@@ -108,7 +108,7 @@ It essentially warps the image by dragging points towards or away from the camer
 
 <br/>
 
-Why are we interested in doing a *Perspective Transform*? Because ultimately we want to measure the curvature of the lines, and to do that, we need to transform to a top-down view, that's when our lane lines will look parallel and we will be able to fit them with the formula above.
+Why are we interested in doing a *Perspective Transform*? Because in reality road boundaries are parallel to each other while in the 2D perspective view they seem to converge to a common point. The perspective projection effect has distorted the shape of the actual road boundaries. Since we ultimately want to measure the curvature of the lines we need to transform to a top-down view, that's when our lane lines will look parallel and we will be able to fit them with the formula above.
 
 <br/>
 
