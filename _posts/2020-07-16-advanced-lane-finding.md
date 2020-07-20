@@ -100,8 +100,11 @@ To calculate the curvature of a lane line, we're going to fit a 2nd degree polyn
 
 where *A* gives us the curvature we're looking for, *B* gives us the direction that the line is pointing towards, and *C* gives us the position of the line based on how far away it is from the left side of the image (y = 0).
 
+#### Color Transform and Gradient
+Now we know what we need, but how are we going to find it? We'll be using something called *Perspective Transform*, but before that there is another image preprocessing step that will make our job easier: we'll use color and gradient transform to create thresholded binary image.
+
 #### Perspective Transform
-Now we know what we need, but how are we going to find it? We'll be using the *Perspective Transform*. A *Perspective Transform* maps the points in a given image to different, image points with a new perspective.
+A *Perspective Transform* maps the points in a given image to different, image points with a new perspective.
 <br/>
 
 It essentially warps the image by dragging points towards or away from the camera to change the apparent perspective.
@@ -127,14 +130,7 @@ The process of applying a perspective transform is similar to what we did to cor
 
 Doing a the bird's eye-view transform is especially useful in this case because it will allow us to match our car location with a map.
 
-#### Color Transform and Gradient
-
-
-
-
 #### Find Lane Boundary
-
-
 
 
 #### Warp Lane Boundaries Back
