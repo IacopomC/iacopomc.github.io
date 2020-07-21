@@ -135,11 +135,13 @@ The x-gradient does a cleaner job of picking up the lane lines, but we can see t
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-post/mag_binary.jpg" width="49%">
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-post/dir_binary.jpg" width="49%">
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/combined.jpg" width="49%">
-
 <br/>
 
 While all these properties are able to identify lane lines, it's by combining them all together that we obtain the most out of them to isolate lane-line pixels.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/combined.jpg" width="70%">
 
 <br/>
 
@@ -201,9 +203,11 @@ It looks like the *S channel* detects lane lines pretty well, as well as the dar
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/h_channel.jpg" width="32%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/l_channel.jpg" width="32%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/s_channel.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/gray_binary.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/red_binary.jpg" width="49%">
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/h_binary.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/s_binary.jpg" width="49%">
 
 <br/>
 
@@ -211,6 +215,12 @@ From these examples, we can see that the S channel is doing a robust job of pick
 <br/>
 
 As with gradients, it's worth combining various color thresholds to make the most robust identification of the lines.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/combined.jpg" width="70%">
+
+<br/>
 
 
 #### Perspective Transform
