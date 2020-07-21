@@ -155,11 +155,36 @@ When we apply the steps above, one crucial part is converting the image to grays
 
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-post/original.jpg" width="32%">
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-post/grayscale.jpg" width="32%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/s_channel.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/red_channel.jpg" width="32%">
 
 <br/>
 
 In the grayscale image the yellow line on the left is barely visible, while in the s channel it's way more clear.
+
+<br/>
+
+We know that an image is composed of *red, blue* and *green* channels. Why can't we use one of these channels to obtain more information? Let's take a look at them:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/red_channel.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/blue_channel.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/green_channel.jpg" width="32%">
+
+<br/>
+
+The brighter pixels indicate higher value of the respective channel color.
+<br/>
+
+Looking at the lane lines we can see that the R and G channels are high for both the white and yellow lane line, while the B channel doesn't detect the yellow lane - there is no blue component in it.
+
+<br/>
+
+This means that the R and G channels are the most useful to isolate both the white and yellow lane lines. Are we done? No. If we take a closer look at those images we can see that both red and green values change under different levels of brightness at the back of the image, they get lower under shadow and don't consistently recognize the lane under extreme brightness.
+
+<br/>
+
+Is there a better way to detect these lanes then? Of course.
 
 #### Perspective Transform
 A *Perspective Transform* maps the points in a given image to different, image points with a new perspective.
