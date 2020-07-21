@@ -153,7 +153,7 @@ When we apply the steps above, one crucial part is converting the image to grays
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/regular_view_road.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/original.jpg" width="32%">
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-post/grayscale.jpg" width="32%">
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-post/s_channel.jpg" width="32%">
 
