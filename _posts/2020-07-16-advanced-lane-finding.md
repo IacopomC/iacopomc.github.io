@@ -184,7 +184,34 @@ This means that the R and G channels are the most useful to isolate both the whi
 
 <br/>
 
-Is there a better way to detect these lanes then? Of course.
+Is there a better way to detect these lanes then? Of course, there are many other ways to represent the color in an image besides *RGB channels*.
+<br/>
+
+The *HLS Color Space*, for instance, isolates the *lightness* (L) component of each pixel in an image. This is the component that varies the most under varies light conditions, while the *H* and *S* channels stay consistent in shadow or excessive brightness. So, by using the last two channels only and discard the information in the *L* channel we'll be able to detect different colors of lane lines more reliably than in an *RGB Space*:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/h_channel.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/l_channel.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/s_channel.jpg" width="32%">
+
+<br/>
+
+It looks like the *S channel* detects lane lines pretty well, as well as the dark section of the *H channel*. Let's try and compare all these channels to create a color threshold that detects lane line pixels of different colors:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/h_channel.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/l_channel.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/s_channel.jpg" width="32%">
+
+<br/>
+
+From these examples, we can see that the S channel is doing a robust job of picking up the lines under very different color and contrast conditions. The S channel is cleaner than the H channel and a bit better than the R channel or simple grayscaling. But it's not clear that one method is far superior to the others.
+<br/>
+
+As with gradients, it's worth combining various color thresholds to make the most robust identification of the lines.
+
 
 #### Perspective Transform
 A *Perspective Transform* maps the points in a given image to different, image points with a new perspective.
