@@ -235,7 +235,7 @@ Why are we interested in doing a *Perspective Transform*? Because in reality roa
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/regular_view_road.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/original.jpg" width="49%">
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-post/top_down_view_road.jpg" width="49%">
 
 <br/>
