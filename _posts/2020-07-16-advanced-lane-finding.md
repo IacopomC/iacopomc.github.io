@@ -101,7 +101,28 @@ To calculate the curvature of a lane line, we're going to fit a 2nd degree polyn
 where *A* gives us the curvature we're looking for, *B* gives us the direction that the line is pointing towards, and *C* gives us the position of the line based on how far away it is from the left side of the image (y = 0).
 
 #### Color Transform and Gradient
-Now we know what we need, but how are we going to find it? We'll be using something called *Perspective Transform*, but before that there is another image preprocessing step that will make our job easier: we'll use color and gradient transform to create thresholded binary image.
+Now we know what we need, but how are we going to find it? We'll be using something called *Perspective Transform*, but before that there is another image preprocessing step that will make our job easier: we'll use color and gradient transforms to create a thresholded binary image.
+
+<br/>
+
+In the previous project [Finding Lane Lines on the Road](https://iacopomc.github.io/blog/lane-finding/) we used the *Canny Edge Detector* to find pixels that were likely to be part of a line in an image. This algorithm is great to find all possible lines, but for lane detection it gives us a lot of edges from scenery and cars that we ended up discarding.
+<br/>
+
+To speed up the process we can take advantage of the fact that the lane lines tend to be close to vertical. How can we take advantage of it? We can use gradients only to find steep edges that are more likely to be lanes in the first place.
+
+<br/>
+
+One operator used to calculate x and y gradients is the *Sobel Operator*, and if we applied it on an image :
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/sobel_x.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/sobel_y.jpg" width="49%">
+
+<br/>
+
+we could see that the gradients taken in both the x and y directions detect the lane lines and pick up other edges. Taking the gradient in the x direction emphasizes edges closer to vertical while the gradient in the y direction emphasizes edges closer to horizontal.
+
 
 #### Perspective Transform
 A *Perspective Transform* maps the points in a given image to different, image points with a new perspective.

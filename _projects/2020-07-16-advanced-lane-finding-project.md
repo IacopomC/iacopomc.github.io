@@ -100,19 +100,19 @@ def color_gradient_transform(img, s_thresh=(170, 255), sx_thresh=(20, 100)):
     # Sobel x
     sobelx = cv2.Sobel(gray, cv2.CV_64F, 1, 0) # Take the derivative in x
     abs_sobelx = np.absolute(sobelx) # Absolute x derivative to accentuate lines away from horizontal
-    scaled_sobel = np.uint8(255*abs_sobelx/np.max(abs_sobelx))
-    
+    scaled_sobel = np.uint8(255*abs_sobelx/np.max(abs_sobelx)) # Convert the absolute value image to 8-bit
+
     # Threshold x gradient
     sxbinary = np.zeros_like(scaled_sobel)
     sxbinary[(scaled_sobel >= sx_thresh[0]) & (scaled_sobel <= sx_thresh[1])] = 1
-    
+
     # Threshold color channel
     s_binary = np.zeros_like(s_channel)
     s_binary[(s_channel >= s_thresh[0]) & (s_channel <= s_thresh[1])] = 1
-    
+
     # Stack each channel
     # color_binary = np.dstack(( np.zeros_like(sxbinary), sxbinary, s_binary)) * 255
-    
+
     # Combine the two binary thresholds
     combined_binary = np.zeros_like(sxbinary)
     combined_binary[(s_binary == 1) | (sxbinary == 1)] = 1
@@ -120,7 +120,7 @@ def color_gradient_transform(img, s_thresh=(170, 255), sx_thresh=(20, 100)):
 
 test_trasf = color_gradient_transform(dist_img, s_thresh=(170, 255), sx_thresh=(20, 100))
 ```
- 
+
 Here's an example of my output for this step.
 
 <br/>
@@ -133,9 +133,9 @@ The code for my perspective transform includes a function called `perspective_tr
 
 ```python
 def perspective_trasform(image):
-    
+
     img_size = (image.shape[1], image.shape[0])
-    
+
     # Define source points and destination points
     src = np.float32(
         [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
@@ -147,16 +147,16 @@ def perspective_trasform(image):
         [(img_size[0] / 5), img_size[1]],
         [(img_size[0] * 3 / 4), img_size[1]],
         [(img_size[0] * 3 / 4), 0]])
-    
+
     # Given src and dst points, calculate the perspective transform matrix
     M = cv2.getPerspectiveTransform(src, dst)
-    
+
     # Calculate inverse perspective matrix
     Minv = cv2.getPerspectiveTransform(dst, src)
-    
+
     # Warp the image using OpenCV warpPerspective()
     warped = cv2.warpPerspective(image, M, img_size, flags=cv2.INTER_LINEAR)
-    
+
     # Return the resulting image
     return warped, Minv
 ```
@@ -207,15 +207,15 @@ def measure_curvature_real(ploty, left_fit_cr, right_fit_cr):
     # Define conversions in x and y from pixels space to meters
     ym_per_pix = 30/720 # meters per pixel in y dimension
     xm_per_pix = 3.7/700 # meters per pixel in x dimension
-    
+
     # Define y-value where we want radius of curvature
     # We'll choose the maximum y-value, corresponding to the bottom of the image
     y_eval = np.max(ploty)
-    
+
     # Calculate the radius of curvature in meters for both lane lines. Should see values of ~1000
     left_curverad = ((1 + (2*left_fit_cr[0]*y_eval*ym_per_pix + left_fit_cr[1])**2)**1.5) / np.absolute(2*left_fit_cr[0])
     right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / np.absolute(2*right_fit_cr[0])
-    
+
     return left_curverad, right_curverad
 ```
 
