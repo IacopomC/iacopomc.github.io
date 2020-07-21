@@ -100,7 +100,7 @@ To calculate the curvature of a lane line, we're going to fit a 2nd degree polyn
 
 where *A* gives us the curvature we're looking for, *B* gives us the direction that the line is pointing towards, and *C* gives us the position of the line based on how far away it is from the left side of the image (y = 0).
 
-#### Color Transform and Gradient
+#### Gradient Transform
 Now we know what we need, but how are we going to find it? We'll be using something called *Perspective Transform*, but before that there is another image preprocessing step that will make our job easier: we'll use color and gradient transforms to create a thresholded binary image.
 
 <br/>
@@ -112,7 +112,7 @@ To speed up the process we can take advantage of the fact that the lane lines te
 
 <br/>
 
-One operator used to calculate x and y gradients is the *Sobel Operator*, and if we applied it on an image :
+One operator used to calculate x and y gradients is the *Sobel Operator*, and if we applied it on an image and took the absolute value:
 
 <br/>
 
@@ -122,6 +122,33 @@ One operator used to calculate x and y gradients is the *Sobel Operator*, and if
 <br/>
 
 we could see that the gradients taken in both the x and y directions detect the lane lines and pick up other edges. Taking the gradient in the x direction emphasizes edges closer to vertical while the gradient in the y direction emphasizes edges closer to horizontal.
+
+<br/>
+
+The x-gradient does a cleaner job of picking up the lane lines, but we can see the lines in the y-gradient as well. Given the results, it's worth exploring other properties of the gradient like *magnitude* and *direction*:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/gradx.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/grady.jpg" width="49%">
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/mag_binary.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/dir_binary.jpg" width="49%">
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/combined.jpg" width="49%">
+
+<br/>
+
+While all these properties are able to identify lane lines, it's by combining them all together that we obtain the most out of them to isolate lane-line pixels.
+
+<br/>
+
+It's worth noticing that  we can modify the kernel size for the *Sobel Operator* to change the size of this region. Taking the gradient over larger regions can smooth over noisy intensity fluctuations on small scales.
+<br/>
+
+As a general rule, the kernel size should be an odd number. Since we are searching for the gradient around a given pixel, we want to have an equal number of pixels in each direction of the region from this central pixel, leading to an odd-numbered filter size.
+
+#### Color Transform
 
 
 #### Perspective Transform
