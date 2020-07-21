@@ -101,7 +101,7 @@ To calculate the curvature of a lane line, we're going to fit a 2nd degree polyn
 where *A* gives us the curvature we're looking for, *B* gives us the direction that the line is pointing towards, and *C* gives us the position of the line based on how far away it is from the left side of the image (y = 0).
 
 #### Gradient Transform
-Now we know what we need, but how are we going to find it? We'll be using something called *Perspective Transform*, but before that there is another image preprocessing step that will make our job easier: we'll use color and gradient transforms to create a thresholded binary image.
+Now we know what we need, but how are we going to find it? We'll be using something called *Perspective Transform*, but before that there are a couple of image preprocessing steps that we will take to make our job easier: we'll use color and gradient transforms to create a thresholded binary image.
 
 <br/>
 
@@ -149,7 +149,17 @@ It's worth noticing that  we can modify the kernel size for the *Sobel Operator*
 As a general rule, the kernel size should be an odd number. Since we are searching for the gradient around a given pixel, we want to have an equal number of pixels in each direction of the region from this central pixel, leading to an odd-numbered filter size.
 
 #### Color Transform
+When we apply the steps above, one crucial part is converting the image to grayscale. By doing so, we lose some valuable information:
 
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/regular_view_road.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/grayscale.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/s_channel.jpg" width="32%">
+
+<br/>
+
+In the grayscale image the yellow line on the left is barely visible, while in the s channel it's way more clear.
 
 #### Perspective Transform
 A *Perspective Transform* maps the points in a given image to different, image points with a new perspective.
