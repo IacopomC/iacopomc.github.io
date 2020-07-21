@@ -141,7 +141,7 @@ While all these properties are able to identify lane lines, it's by combining th
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/combined.jpg" width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/gradient_transform.jpg" width="70%">
 
 <br/>
 
@@ -218,7 +218,7 @@ As with gradients, it's worth combining various color thresholds to make the mos
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/combined.jpg" width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/color_transform.jpg" width="70%">
 
 <br/>
 
