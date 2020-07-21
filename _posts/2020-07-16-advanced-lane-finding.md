@@ -212,6 +212,7 @@ It looks like the *S channel* detects lane lines pretty well, as well as the dar
 <br/>
 
 From these examples, we can see that the S channel is doing a robust job of picking up the lines under very different color and contrast conditions. The S channel is cleaner than the H channel and a bit better than the R channel or simple grayscaling. But it's not clear that one method is far superior to the others.
+
 <br/>
 
 As with gradients, it's worth combining various color thresholds to make the most robust identification of the lines.
