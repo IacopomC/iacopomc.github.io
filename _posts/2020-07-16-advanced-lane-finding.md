@@ -220,7 +220,7 @@ As with gradients, it's worth combining various color thresholds to make the mos
 
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-post/color_transform.jpg" width="70%">
 
-<br/>
+#### Color and Gradient Transform Combined
 
 
 #### Perspective Transform
