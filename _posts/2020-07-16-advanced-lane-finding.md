@@ -318,7 +318,9 @@ From that point, we can use a sliding window - placed around the line centers - 
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/window_img.jpg"  width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/window_img1.jpg"  width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/window_img2.jpg"  width="32%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/window_img.jpg"  width="32%">
 
 <br/>
 
