@@ -5,6 +5,7 @@ categories:
   - projects
 tags:
   - Project
+date: 2020-07-13
 ---
 
 The goal of this project is to identify lane lines on the road. At first the pipeline is developed on a series of individual images, and later the result is applied to a video stream.
