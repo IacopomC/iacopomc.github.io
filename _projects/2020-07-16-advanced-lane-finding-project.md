@@ -90,42 +90,34 @@ As a first step, I applied the distortion correction to one of the test images:
 Then, I used a combination of color and gradient thresholds to generate a binary image:
 
 ```python
-def color_gradient_transform(img, s_thresh=(170, 255), sx_thresh=(20, 100)):
+def color_gradient_transform(img, sobel_size=ksize,
+                             grad_thresh=(20, 100), mag_thresh=(30, 100), dir_thresh=(0.7, 1.3),
+                             gray_thresh=(180, 255), red_thresh=(200, 255), h_thresh=(15, 100), s_thresh=(90, 255)):
     img = np.copy(img)
-    # Convert to HLS color space and separate the S channel
-    hls = cv2.cvtColor(img, cv2.COLOR_RGB2HLS)
-    s_channel = hls[:,:,2]
-    # Grayscale image
-    gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-    # Sobel x
-    sobelx = cv2.Sobel(gray, cv2.CV_64F, 1, 0) # Take the derivative in x
-    abs_sobelx = np.absolute(sobelx) # Absolute x derivative to accentuate lines away from horizontal
-    scaled_sobel = np.uint8(255*abs_sobelx/np.max(abs_sobelx)) # Convert the absolute value image to 8-bit
 
-    # Threshold x gradient
-    sxbinary = np.zeros_like(scaled_sobel)
-    sxbinary[(scaled_sobel >= sx_thresh[0]) & (scaled_sobel <= sx_thresh[1])] = 1
+    # Gradient transform
+    gradient_binary = gradient_transform(img, ksize, grad_thresh=grad_thresh, mag_thresh=mag_thresh, dir_thresh=dir_thresh)
 
-    # Threshold color channel
-    s_binary = np.zeros_like(s_channel)
-    s_binary[(s_channel >= s_thresh[0]) & (s_channel <= s_thresh[1])] = 1
-
-    # Stack each channel
-    # color_binary = np.dstack(( np.zeros_like(sxbinary), sxbinary, s_binary)) * 255
+    # Color transform
+    color_binary = color_transform(dist_img, gray_thresh=gray_thresh, red_thresh=red_thresh, h_thresh=h_thresh, s_thresh=s_thresh)
 
     # Combine the two binary thresholds
-    combined_binary = np.zeros_like(sxbinary)
-    combined_binary[(s_binary == 1) | (sxbinary == 1)] = 1
+    combined_binary = np.zeros_like(gradient_binary)
+    combined_binary[(color_binary == 1) | (gradient_binary == 1)] = 1
+
     return combined_binary
 
-test_trasf = color_gradient_transform(dist_img, s_thresh=(170, 255), sx_thresh=(20, 100))
+    test_trasf = color_gradient_transform(dist_img, ksize,
+                                          grad_thresh=(20, 100), mag_thresh=(30, 100), dir_thresh=(0.7, 1.3),
+                                          gray_thresh=(180, 255), red_thresh=(200, 255), h_thresh=(15, 100), s_thresh=(90, 255))
+
 ```
 
 Here's an example of my output for this step.
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test_trasf.jpg" width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/test_trasf.jpg" width="70%">
 
 <br/>
 
