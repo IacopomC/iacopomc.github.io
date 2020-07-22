@@ -121,7 +121,7 @@ Here's an example of my output for this step.
 
 <br/>
 
-The code for my perspective transform includes a function called `perspective_trasform()` where I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform includes a function called `perspective_trasform()` where I chose to hardcode the source and destination points in the following manner:
 
 ```python
 def perspective_trasform(image):
@@ -181,11 +181,11 @@ I grab the half bottom of the image `[binary_warped.shape[0]//2:,:]` because the
 
 I used a *Sliding Window* placed around the line centers to find and follow the lines up to the top of the frame.
 
-The 5th cell contains the code I used to detect the lane lines.
+The 8th cell contains the code I used to detect the lane lines.
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/fit_img.jpg" width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/window_img.jpg" width="70%">
 
 <br/>
 
