@@ -117,7 +117,7 @@ Here's an example of my output for this step.
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/test_trasf.jpg" width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/test_transf.jpg" width="70%">
 
 <br/>
 
