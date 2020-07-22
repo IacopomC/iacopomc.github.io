@@ -79,7 +79,7 @@ This way, we'll be able to detect any distortion by looking at the difference be
 
 <br/>
 
-It's recommended to use at least 20 images to obtain a reliable calibration.
+It's recommended to use at least 20 images to obtain a reliable calibration and it's useful to notice that we only need to compute it once, and then apply it to undistort each new frame.
 
 #### Lane Curvature and Vehicle Position
 Great! Now, we prepared our images. Let's keep in mind what our goal is: detect lane lines, measure their curvature and the vehicle position with respect to the center.
@@ -221,8 +221,32 @@ As with gradients, it's worth combining various color thresholds to make the mos
 
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-post/color_transform.jpg" width="70%">
 
-#### Color and Gradient Transform Combined
+#### Color and Gradient Combined
+It's time to combine what we know about color and gradient thresholding to get the best of both worlds.
 
+<br/>
+
+At this point, it's okay to detect edges around trees or cars because these lines can be mostly filtered out by applying a mask to the image and cropping out the area outside of the lane lines.
+<br/>
+
+We can see which parts of the lane lines were detected by the gradient threshold and which parts were detected by the color threshold by stacking the channels and seeing the individual components:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/color_gradient_stacked.jpg" width="70%">
+
+<br/>
+
+The green is the gradient threshold component and the red is the color channel threshold component.
+<br/>
+
+The final black and white combined thresholded image looks like this:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/color_gradient.jpg" width="70%">
+
+<br/>
 
 #### Perspective Transform
 A *Perspective Transform* maps the points in a given image to different, image points with a new perspective.
