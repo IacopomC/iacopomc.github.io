@@ -279,7 +279,7 @@ We are assuming the road is a flat plane. While this isn't strictly true, it can
 When applying the transform to new images - to check whether or not we got the transform correct - the lane lines should appear parallel in the warped images whether they are straight or curved.
 <br/>
 
-Since we're going to apply the *Perspective Transform* to thresholded binary images, here's the final result we want to obtain:
+Since we're going to apply the *Perspective Transform* to thresholded binary images, here's the final result we want to obtain and that will be the starting point for our next step:
 
 <br/>
 
