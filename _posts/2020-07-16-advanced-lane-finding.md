@@ -249,7 +249,7 @@ The final black and white combined thresholded image looks like this:
 <br/>
 
 #### Perspective Transform
-A *Perspective Transform* maps the points in a given image to different, image points with a new perspective.
+A *Perspective Transform* maps the points in a given image to different image points with a new perspective.
 <br/>
 
 It essentially warps the image by dragging points towards or away from the camera to change the apparent perspective.
@@ -266,6 +266,9 @@ Why are we interested in doing a *Perspective Transform*? Because in reality roa
 <br/>
 
 The process of applying a perspective transform is similar to what we did to correct image distortion, but this time we want to map the points in our image to different desired image points with a new perspective.
+<br/>
+
+We are assuming the road is a flat plane. While this isn't strictly true, it can serve as an approximation in this case.
 
 <br/>
 
@@ -273,7 +276,18 @@ The process of applying a perspective transform is similar to what we did to cor
 
 <br/>
 
-Doing a the bird's eye-view transform is especially useful in this case because it will allow us to match our car location with a map.
+When applying the transform to new images - to check whether or not we got the transform correct - the lane lines should appear parallel in the warped images whether they are straight or curved.
+<br/>
+
+Since we're going to apply the *Perspective Transform* to thresholded binary images, here's the final result we want to obtain:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test_warped.jpg">
+
+<br/>
+
+Doing a bird's eye-view transform is especially useful in this case because it will allow us to match our car location with a map.
 
 #### Find Lane Boundary
 
