@@ -283,7 +283,7 @@ Since we're going to apply the *Perspective Transform* to thresholded binary ima
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test_warped.jpg">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test_warped.jpg"  width="70%">
 
 <br/>
 
