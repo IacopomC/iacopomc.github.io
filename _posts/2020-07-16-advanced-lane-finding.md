@@ -314,7 +314,20 @@ With this histogram we are adding up the pixel values along each column in the i
 
 <br/>
 
-
 From that point, we can use a sliding window - placed around the line centers - to find and follow the lines up to the top of the frame.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/window_img.jpg"  width="70%">
+
+<br/>
+
+Now that we have found all our pixels belonging to each line through the sliding window method, it's time to fit a polynomial to the line.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/fit_img.png"  width="70%">
+
+<br/>
 
 #### Warp Lane Boundaries Back
