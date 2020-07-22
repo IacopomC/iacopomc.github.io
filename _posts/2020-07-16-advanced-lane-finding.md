@@ -345,5 +345,3 @@ And this is the fitting line we need to measure the lane curvature.
 <br/>
 
 Using the full algorithm from before and starting fresh on every frame is inefficient, as the lines don't move a lot from frame to frame. When performed on a video, in the following frame it's better to search in a margin around the previous line position. This way, once we know where the lines are in one frame of video, we can do a highly targeted search for them in the next frame.
-
-#### Warp Lane Boundaries Back
