@@ -101,7 +101,7 @@ To calculate the curvature of a lane line, we're going to fit a 2nd degree polyn
 where *A* gives us the curvature we're looking for, *B* gives us the direction that the line is pointing towards, and *C* gives us the position of the line based on how far away it is from the left side of the image (y = 0).
 
 #### Gradient Transform
-Now we know what we need, but how are we going to find it? We'll be using something called *Perspective Transform*, but before that there are a couple of image preprocessing steps that we will take to make our job easier: we'll use color and gradient transforms to create a thresholded binary image.
+We know what we need, but how are we going to find it? We'll be using something called *Perspective Transform*, but before that there are a couple of image preprocessing steps that we will take to make our job easier: we'll use color and gradient transforms to create a thresholded binary image.
 
 <br/>
 

@@ -189,6 +189,40 @@ The 8th cell contains the code I used to detect the lane lines.
 
 <br/>
 
+One extra step when the pipeline is performed on a video includes searching for the lane line within a margin around the previous position. This is necessary because using the full algorithm from before and starting fresh on every frame is inefficient, as the lines don't move a lot from frame to frame.
+
+```python
+def search_around_poly(binary_warped, left_lane, right_lane):
+
+    # HYPERPARAMETER
+    margin = 100
+
+    # Retrieve lanes previous fit
+    prev_left_fit, prev_right_fit = left_lane.best_fit, right_lane.best_fit
+
+    # Grab activated pixels
+    nonzero = binary_warped.nonzero()
+    nonzeroy = np.array(nonzero[0])
+    nonzerox = np.array(nonzero[1])
+
+    ### Set the area of search based on activated x-values ###
+    ### within the +/- margin of our polynomial function ###
+    left_lane_inds = ((nonzerox > (prev_left_fit[0]*(nonzeroy**2) + prev_left_fit[1]*nonzeroy +
+                    prev_left_fit[2] - margin)) & (nonzerox < (prev_left_fit[0]*(nonzeroy**2) +
+                    prev_left_fit[1]*nonzeroy + prev_left_fit[2] + margin)))
+    right_lane_inds = ((nonzerox > (prev_right_fit[0]*(nonzeroy**2) + prev_right_fit[1]*nonzeroy +
+                    prev_right_fit[2] - margin)) & (nonzerox < (prev_right_fit[0]*(nonzeroy**2) +
+                    prev_right_fit[1]*nonzeroy + prev_right_fit[2] + margin)))
+
+    # Again, extract left and right line pixel positions
+    leftx = nonzerox[left_lane_inds]
+    lefty = nonzeroy[left_lane_inds]
+    rightx = nonzerox[right_lane_inds]
+    righty = nonzeroy[right_lane_inds]
+
+    return leftx, lefty, rightx, righty
+``
+
 Next, I measured the radius of curvature:
 
 ```python
@@ -263,4 +297,4 @@ And the final video:
 
 One shortcoming occurs when the model doesn't detect one of the two lines in the first frame.
 
-As an improvment smoothing could be applied to avoid that line detection jumps around from frame to frame.
+As an improvement smoothing could be applied to avoid that line detection jumps around from frame to frame.
