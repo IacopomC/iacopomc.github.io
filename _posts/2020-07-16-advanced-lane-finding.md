@@ -290,6 +290,31 @@ Since we're going to apply the *Perspective Transform* to thresholded binary ima
 Doing a bird's eye-view transform is especially useful in this case because it will allow us to match our car location with a map.
 
 #### Find Lane Boundary
+Our ultimate goal was to measure how much the lanes are curving or where our vehicle is located with respect to the center of the lane. We're almost there.
 
+<br/>
+
+After applying *calibration*, *thresholding*, and a *perspective transform* to a road image, we have a binary warped image where the lane lines stand out clearly. However, we still need to decide explicitly which pixels are part of the lines and which belong to the left line or the right line.
+
+<br/>
+
+How are we gonna do this? We take a histogram along all the columns in the lower half of the image. Why the lower half? Because the lanes are more likely to be mostly vertical closer to the car.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/lanes_histogram.jpg"  width="70%">
+
+<br/>
+
+With this histogram we are adding up the pixel values along each column in the image. In our thresholded binary image, pixels are either 0 or 1, so the two most prominent peaks in this histogram will be indicators of the x-position of the base of the lane lines. We can use that as a starting point for where to search for the lines.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/histogram_over_lanes.jpg"  width="70%">
+
+<br/>
+
+
+From that point, we can use a sliding window - placed around the line centers - to find and follow the lines up to the top of the frame.
 
 #### Warp Lane Boundaries Back
