@@ -5,7 +5,7 @@ categories:
   - projects
 tags:
   - Project
-date: 2020-06-16
+date: 2020-07-16
 ---
 
 The goal of this project is to write a software pipeline to identify the lane boundaries in a video from a front-facing camera on a car. At first the pipeline is developed on a series of individual images, and later the result is applied to a video stream.
