@@ -91,16 +91,18 @@ As a first step, I applied the distortion correction to one of the test images:
 Then, I used a combination of color and gradient thresholds to generate a binary image:
 
 ```python
-def color_gradient_transform(img, sobel_size=ksize,
+def color_gradient_transform(img, sobel_size=9, gaussian_kernel=5,
                              grad_thresh=(20, 100), mag_thresh=(30, 100), dir_thresh=(0.7, 1.3),
                              gray_thresh=(180, 255), red_thresh=(200, 255), h_thresh=(15, 100), s_thresh=(90, 255)):
     img = np.copy(img)
 
     # Gradient transform
-    gradient_binary = gradient_transform(img, ksize, grad_thresh=grad_thresh, mag_thresh=mag_thresh, dir_thresh=dir_thresh)
+    gradient_binary = gradient_transform(img, sobel_size, gaussian_kernel,
+                                         grad_thresh=grad_thresh, mag_thresh=mag_thresh, dir_thresh=dir_thresh)
 
     # Color transform
-    color_binary = color_transform(dist_img, gray_thresh=gray_thresh, red_thresh=red_thresh, h_thresh=h_thresh, s_thresh=s_thresh)
+    color_binary = color_transform(img, gaussian_kernel,
+                                   gray_thresh=gray_thresh, red_thresh=red_thresh, h_thresh=h_thresh, s_thresh=s_thresh)
 
     # Combine the two binary thresholds
     combined_binary = np.zeros_like(gradient_binary)
@@ -108,7 +110,7 @@ def color_gradient_transform(img, sobel_size=ksize,
 
     return combined_binary
 
-    test_trasf = color_gradient_transform(dist_img, ksize,
+    test_trasf = color_gradient_transform(dist_img, ksize, gaussian_kernel,
                                           grad_thresh=(20, 100), mag_thresh=(30, 100), dir_thresh=(0.7, 1.3),
                                           gray_thresh=(180, 255), red_thresh=(200, 255), h_thresh=(15, 100), s_thresh=(90, 255))
 
@@ -121,6 +123,60 @@ Here's an example of my output for this step.
 <img src="{{ site.url }}/assets/images/advanced-lane-finding-post/test_transf.jpg" width="70%">
 
 <br/>
+
+In the color transform I combined *grayscale*, *binary red channel*, *binary h channel* and *binary s channel*.
+
+```python
+def color_transform(img, gaussian_kernel=5, gray_thresh=(180, 255), red_thresh=(200, 255), h_thresh=(15, 100), s_thresh=(90, 255)):
+
+    # Create gray image
+    gray_img = gray_binary(img, thresh=gray_thresh)
+    blur_gray = cv2.GaussianBlur(gray_img, (gaussian_kernel, gaussian_kernel), 0)
+    # Create red image
+    red_img = red_binary(img, thresh=red_thresh)
+
+    # Create h channel image
+    h_img = h_binary(img, gaussian_kernel=gaussian_kernel, thresh=h_thresh)
+
+    # Create s channel image
+    s_img = s_binary(img, gaussian_kernel=gaussian_kernel, thresh=s_thresh)
+
+    combined_binary = np.zeros_like(s_img)
+    combined_binary[((gray_img == 1) & (red_img == 1)) | ((h_img == 1) & (s_img == 1))] = 1
+#     [((blur_gray == 1) | (red_img == 1)) | ((h_img == 1) | (s_img == 1))] = 1
+
+    return combined_binary
+```
+
+While in the gradient transform I used the *gradient along the x and y axis*, the *magnitude* and *direction* of the gradient.
+
+```python
+def gradient_transform(img, sobel_kernel=3, gaussian_kernel=5, grad_thresh=(0, 255), mag_thresh=(0, 255), dir_thresh=(0, np.pi/2)):
+
+    # Create x and y gradients images
+    gradx = abs_sobel_thresh(img, orient='x', sobel_kernel=ksize, gaussian_kernel=gaussian_kernel, thresh=grad_thresh)
+    grady = abs_sobel_thresh(img, orient='y', sobel_kernel=ksize, gaussian_kernel=gaussian_kernel, thresh=grad_thresh)
+
+    # Create magnitude image
+    mag_binary = mag_threshold(img, sobel_kernel=ksize, gaussian_kernel=gaussian_kernel, mag_thresh=mag_thresh)
+
+    # Create gradient direction image
+    dir_binary = dir_threshold(img, sobel_kernel=ksize, gaussian_kernel=gaussian_kernel, thresh=dir_thresh)
+
+    combined_binary = np.zeros_like(dir_binary)
+    combined_binary[((gradx == 1) & (grady == 1)) | ((mag_binary == 1) & (dir_binary == 1))] = 1
+
+    return combined_binary
+```
+
+It's important to notice that after grayscaling the image to apply the different thresholds, I used a *Gaussian Filter* to smooth out the image.
+
+```python
+# Convert to grayscale
+gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+# Gaussian Filter
+blur_gray = cv2.GaussianBlur(gray, (gaussian_kernel, gaussian_kernel), 0)
+```
 
 The code for my perspective transform includes a function called `perspective_trasform()` where I chose to hardcode the source and destination points in the following manner:
 
