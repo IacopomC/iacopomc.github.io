@@ -74,8 +74,8 @@ and obtained this result:
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/cal_original.jpg" width="45%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/cal_corrected.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/cal_original.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/cal_corrected.jpg" width="49%">
 
 ---
 ### Pipeline
@@ -262,27 +262,28 @@ Here's the result of the pipeline applied to all the test images included in the
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/straight_lines1.jpg" width="45%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/straight_lines2.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/straight_lines1.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/straight_lines2.jpg" width="49%">
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test1.jpg" width="45%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test2.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test1.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test2.jpg" width="49%">
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test3.jpg" width="45%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test4.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test3.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test4.jpg" width="49%">
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test5.jpg" width="45%">
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test6.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test5.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test6.jpg" width="49%">
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test7.jpg" width="45%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test7.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/test8.jpg" width="49%">
 
 <br/>
 
