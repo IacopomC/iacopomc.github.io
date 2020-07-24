@@ -120,7 +120,7 @@ Here's an example of my output for this step.
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/test_transf.jpg" width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/color_gradient.jpg" width="70%">
 
 <br/>
 

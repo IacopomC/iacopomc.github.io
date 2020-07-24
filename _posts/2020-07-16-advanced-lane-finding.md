@@ -336,7 +336,7 @@ Now that we have found all our pixels belonging to each line through the sliding
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/advanced-lane-finding-project/fit_img.png"  width="70%">
+<img src="{{ site.url }}/assets/images/advanced-lane-finding-post/fit_img.jpg"  width="70%">
 
 <br/>
 
