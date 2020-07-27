@@ -179,6 +179,18 @@ gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 blur_gray = cv2.GaussianBlur(gray, (gaussian_kernel, gaussian_kernel), 0)
 ```
 
+And I used *percentile thresholding* to apply the different thresholds.
+
+```python
+# Create percentile-based thresholds
+thresh_min = np.percentile(blur_gray, thresh[0])
+thresh_max = np.percentile(blur_gray, thresh[1])
+
+# Apply threshold
+gray_binary = np.zeros_like(blur_gray)
+gray_binary[(blur_gray > thresh_min) & (blur_gray <= thresh_max)] = 1
+```
+
 The code for my perspective transform includes a function called `perspective_trasform()` where I chose to hardcode the source and destination points in the following manner:
 
 ```python
