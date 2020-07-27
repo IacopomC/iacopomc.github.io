@@ -10,6 +10,6 @@ The purpose of this post is to explain the theory behind the project [Traffic Si
 
 <br/>
 
-Deep learning has become the most important frontier in both machine learning and autonomous vehicle development. In this project, we'll train a convolutional neural network to classify traffic signs.
+Deep learning has become the most important frontier in both machine learning and autonomous vehicle development. In this project, we'll train a convolutional neural network to classify traffic signs based on the ideas provided in [this paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) by Pierre Sermanet and Yann LeCun.
 
 #### Image pre-processing
