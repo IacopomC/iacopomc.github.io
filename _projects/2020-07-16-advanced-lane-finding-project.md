@@ -92,8 +92,9 @@ Then, I used a combination of color and gradient thresholds to generate a binary
 
 ```python
 def color_gradient_transform(img, sobel_size=9, gaussian_kernel=5,
-                             grad_thresh=(20, 100), mag_thresh=(30, 100), dir_thresh=(0.7, 1.3),
-                             gray_thresh=(180, 255), red_thresh=(200, 255), h_thresh=(15, 100), s_thresh=(90, 255)):
+                             grad_thresh=(0, 100), mag_thresh=(0, 100), dir_thresh=(0.7, 1.3),
+                             gray_thresh=(0, 100), red_thresh=(0, 100), h_thresh=(0, 100), s_thresh=(0, 100)):
+
     img = np.copy(img)
 
     # Gradient transform
@@ -111,8 +112,8 @@ def color_gradient_transform(img, sobel_size=9, gaussian_kernel=5,
     return combined_binary
 
     test_trasf = color_gradient_transform(dist_img, ksize, gaussian_kernel,
-                                          grad_thresh=(20, 100), mag_thresh=(30, 100), dir_thresh=(0.7, 1.3),
-                                          gray_thresh=(180, 255), red_thresh=(200, 255), h_thresh=(15, 100), s_thresh=(90, 255))
+                                      grad_thresh=(95, 100), mag_thresh=(95, 100), dir_thresh=(0.7, 1.3),
+                                      gray_thresh=(95, 100), red_thresh=(98, 100), h_thresh=(20, 30), s_thresh=(90, 100))
 
 ```
 
@@ -127,7 +128,7 @@ Here's an example of my output for this step.
 In the color transform I combined *grayscale*, *binary red channel*, *binary h channel* and *binary s channel*.
 
 ```python
-def color_transform(img, gaussian_kernel=5, gray_thresh=(180, 255), red_thresh=(200, 255), h_thresh=(15, 100), s_thresh=(90, 255)):
+def color_transform(img, gaussian_kernel=5, gray_thresh=(95, 100), red_thresh=(98, 100), h_thresh=(30, 50), s_thresh=(90, 100)):
 
     # Create gray image
     gray_img = gray_binary(img, thresh=gray_thresh)
@@ -151,7 +152,7 @@ def color_transform(img, gaussian_kernel=5, gray_thresh=(180, 255), red_thresh=(
 While in the gradient transform I used the *gradient along the x and y axis*, the *magnitude* and *direction* of the gradient.
 
 ```python
-def gradient_transform(img, sobel_kernel=3, gaussian_kernel=5, grad_thresh=(0, 255), mag_thresh=(0, 255), dir_thresh=(0, np.pi/2)):
+def gradient_transform(img, sobel_kernel=3, gaussian_kernel=5, grad_thresh=(0, 100), mag_thresh=(0, 100), dir_thresh=(0, np.pi/2)):
 
     # Create x and y gradients images
     gradx = abs_sobel_thresh(img, orient='x', sobel_kernel=ksize, gaussian_kernel=gaussian_kernel, thresh=grad_thresh)
