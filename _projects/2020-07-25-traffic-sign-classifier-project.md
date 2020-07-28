@@ -143,6 +143,13 @@ As a last step, I shuffled the training set otherwise the ordering of the data m
 | Fully connected		| Input 84, output 43	|
 | Softmax				|         									|
 
+| Bill of Materials | Purpose | Cost: |
+|---|:---|:---|
+| Raspberry Pi Computer Units  | Runs main program, computations and calculations  | **TBA**  |
+| Camera/Sensors  | Monitors parking lot entrances and uses [OpenCV](http://opencv.org/) | **TBA**   |
+| Network Adapters  | Transmits data regarding capacity and current conditions    | **TBA**   |
+| External Materials  | (*Waterproof Case, Ethernet, Power Cords*)   | **TBA**   |
+
 #### Training hyperparameters
 
 I trained the model using an Adam optimizer, a learning rate of 0.001, a dropout rate of 0.1 and batch size of 128.
