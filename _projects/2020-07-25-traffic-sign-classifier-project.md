@@ -142,6 +142,7 @@ As a last step, I shuffled the training set otherwise the ordering of the data m
 | Regularization					|												|
 | Fully connected		| Input 84, output 43	|
 | Softmax				|         									|
+{:.table-striped}
 
 #### Training hyperparameters
 
