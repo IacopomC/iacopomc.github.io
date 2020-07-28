@@ -70,3 +70,53 @@ Here is an exploratory visualization of the data set. They are bar charts showin
 <img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/test_classes_distribution.png" width="32%">
 
 <br/>
+
+---
+### Design and Test a Model Architecture
+
+#### Data Pre-processing
+
+As a first step, I decided to convert the images to YUV space and keep only the Y channel as suggested in [this published model](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) because the color feature is not relevant in this task and it would only increase the computational cost.
+
+After that, I applied a *Histogram Equalizer* to normalize the brightness and increase the contrast of the image.
+
+```python
+X_train_proc = np.zeros((X_train.shape[0], X_train.shape[1], X_train.shape[2], 1))
+for i in range(X_train.shape[0]):
+    img_yuv = cv.cvtColor(X_train[i], cv.COLOR_BGR2YUV)
+    y,_,_ = cv.split(img_yuv)
+    clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
+    X_train_proc[i,:,:,0] = clahe.apply(y)
+```
+
+Here is an example of a traffic sign image before and after pre-processing.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/original.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/processed.jpg" width="49%">
+
+<br/>
+
+I decided to do data augmentation to increase the diversity of data available for training models, without actually collecting new data. Samples were randomly perturbed in position ([-2,2] pixels) and rotation ([-15,+15] degrees), as described in [the published model](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf).
+
+Here is an example of an original image and an augmented image:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/original.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/augmented_img.jpg" width="49%">
+
+<br/>
+
+The difference between the original data set and the augmented data set is an increment in the number of images, which now have only one channel.
+
+Following, I normalized the image data because it makes convergence faster while training the network.
+
+```python
+X_train_proc = (aug_X_train - np.mean(aug_X_train))/np.std(aug_X_train)
+X_valid_proc = (X_valid_proc - np.mean(X_valid_proc))/np.std(X_valid_proc)
+X_test_proc = (X_test_proc - np.mean(X_test_proc))/np.std(X_test_proc)
+```
+
+As a last step, I shuffled the training set otherwise the ordering of the data might have an effect on how well the network trains.
