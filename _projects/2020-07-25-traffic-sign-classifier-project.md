@@ -93,8 +93,8 @@ Here is an example of a traffic sign image before and after pre-processing.
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/original.jpg" width="49%">
-<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/processed.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/original.jpg" width="40%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/processed.jpg" width="40%">
 
 <br/>
 
@@ -104,8 +104,8 @@ Here is an example of an original image and an augmented image:
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/original.jpg" width="49%">
-<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/augmented_img.jpg" width="49%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/original.jpg" width="40%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/augmented_img.jpg" width="40%">
 
 <br/>
 
