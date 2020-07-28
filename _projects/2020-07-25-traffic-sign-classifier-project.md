@@ -160,7 +160,7 @@ An iterative approach was chosen:
 ---
 ### Test a Model on New Images
 
-I choose five German traffic signs on the web to test my model on:
+I chose five German traffic signs on the web to test my model on:
 
 <br/>
 
