@@ -228,3 +228,7 @@ def predict(X_data):
 
     return predictions
 ```
+
+---
+### Shortcomings with the current pipeline
+A shortcoming could be the way fake data have been generated.
