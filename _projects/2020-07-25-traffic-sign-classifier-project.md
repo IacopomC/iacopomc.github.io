@@ -156,3 +156,75 @@ An iterative approach was chosen:
 * The starting point was the LeNet Neural Network because it performs well on recognition tasks. I adapted it to my model with 43 final outputs.
 * Initially, I noticed that this architecture overfitted the original training set and I introduced Dropout Regularization after the first two Dense layers.
 * After a few trial and error I was able to tune both the dropout rate and the learning rate to 10% and 0.001.
+
+---
+### Test a Model on New Images
+
+I choose five German traffic signs on the web to test my model on:
+
+<img src="./additional_img/1.jpg" width="30%">
+<img src="./additional_img/9.jpg" width="29%">
+<img src="./additional_img/29.jpg" width="38%">
+<img src="./additional_img/30.jpg" width="30%">
+<img src="./additional_img/35.jpg" width="30%">
+
+All these images maybe challenging to classify because:
+
+* they include much more background then the training images
+* the background is very different from the one in the training images
+* one image contains copyright trademarks
+
+Here are the results of the prediction:
+
+Top 5 labels for `Speed limit (30km/h)`:
+ * `Speed limit (30km/h)` with prob = 0.91
+ * `Speed limit (50km/h)` with prob = 0.09
+ * `End of speed limit (80km/h)` with prob = 0.00
+ * `Speed limit (80km/h)` with prob = 0.00
+ * `Speed limit (20km/h)` with prob = 0.00
+
+Top 5 labels for `Bicycles crossing`:
+ * `Bicycles crossing` with prob = 0.99
+ * `Children crossing` with prob = 0.01
+ * `Slippery road` with prob = 0.00
+ * `Bumpy road` with prob = 0.00
+ * `Speed limit (60km/h)` with prob = 0.00
+
+Top 5 labels for `Beware of ice/snow`:
+ * `Slippery road` with prob = 0.95
+ * `Beware of ice/snow` with prob = 0.04
+ * `Wild animals crossing` with prob = 0.01
+ * `Double curve` with prob = 0.00
+ * `Road work` with prob = 0.00
+
+Top 5 labels for `Ahead only`:
+ * `Ahead only` with prob = 1.00
+ * `Turn left ahead` with prob = 0.00
+ * `No vehicles` with prob = 0.00
+ * `Speed limit (60km/h)` with prob = 0.00
+ * `Turn right ahead` with prob = 0.00
+
+Top 5 labels for `No passing`:
+ * `No entry` with prob = 1.00
+ * `Stop` with prob = 0.00
+ * `End of all speed and passing limits` with prob = 0.00
+ * `End of no passing` with prob = 0.00
+ * `No passing` with prob = 0.00
+
+The model was able to correctly guess 3 of the 5 traffic signs, which gives an accuracy of 60%.
+
+Here's the snippet of the code for making predictions:
+
+```python
+probability_prediction = tf.nn.softmax(logits=logits)
+
+def predict(X_data):
+    num_examples = len(X_data)
+    sess = tf.get_default_session()
+    predictions = list()
+    for offset in range(0, num_examples, BATCH_SIZE):
+        batch_x = X_data[offset:offset+BATCH_SIZE]
+        predictions.extend( sess.run(probability_prediction, feed_dict={x: batch_x}))
+
+    return predictions
+```
