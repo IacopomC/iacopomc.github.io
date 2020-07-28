@@ -126,7 +126,7 @@ As a last step, I shuffled the training set otherwise the ordering of the data m
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/final_model_architecture.jpg">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/final_model_architecture.JPG">
 
 <br/>
 
