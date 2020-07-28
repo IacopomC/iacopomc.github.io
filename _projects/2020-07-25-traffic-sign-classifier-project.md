@@ -143,3 +143,16 @@ As a last step, I shuffled the training set otherwise the ordering of the data m
 | Regularization					|												|
 | Fully connected		| Input 84, output 43	|
 | Softmax				|         									|
+
+#### Training hyperparameters
+
+I trained the model using an Adam optimizer, a learning rate of 0.001, a dropout rate of 0.1 and batch size of 128.
+
+My final model results were:
+* validation set accuracy of 0.943
+* test set accuracy of 0.925
+
+An iterative approach was chosen:
+* The starting point was the LeNet Neural Network because it performs well on recognition tasks. I adapted it to my model with 43 final outputs.
+* Initially, I noticed that this architecture overfitted the original training set and I introduced Dropout Regularization after the first two Dense layers.
+* After a few trial and error I was able to tune both the dropout rate and the learning rate to 10% and 0.001.
