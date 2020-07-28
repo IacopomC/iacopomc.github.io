@@ -162,11 +162,16 @@ An iterative approach was chosen:
 
 I choose five German traffic signs on the web to test my model on:
 
-<img src="./additional_img/1.jpg" width="30%">
-<img src="./additional_img/9.jpg" width="29%">
-<img src="./additional_img/29.jpg" width="38%">
-<img src="./additional_img/30.jpg" width="30%">
-<img src="./additional_img/35.jpg" width="30%">
+<br/>
+
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/1.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/9.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/29.jpg" width="32%">
+
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/30.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/35.jpg" width="32%">
+
+<br/>
 
 All these images maybe challenging to classify because:
 
