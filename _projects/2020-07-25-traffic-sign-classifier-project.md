@@ -166,10 +166,10 @@ I choose five German traffic signs on the web to test my model on:
 
 <img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/1.jpg" width="32%">
 <img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/9.jpg" width="31%">
-<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/29.jpg" width="33%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/29.jpg" width="36%">
 
 <img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/30.jpg" width="32%">
-<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/35.jpg" width="34%">
+<img src="{{ site.url }}/assets/images/traffic-sign-classifier-project/35.jpg" width="33%">
 
 <br/>
 
