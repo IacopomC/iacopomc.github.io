@@ -120,3 +120,26 @@ X_test_proc = (X_test_proc - np.mean(X_test_proc))/np.std(X_test_proc)
 ```
 
 As a last step, I shuffled the training set otherwise the ordering of the data might have an effect on how well the network trains.
+
+
+#### Final Model Architecture
+
+
+| Layer         		|     Description	        					|
+|:---------------------:|:---------------------------------------------:|
+| Input         		| 32x32x1 image (Y channel)   							|
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
+| Convolution 5x5	    | 1x1 stride, valid padding, outputs 10x10x16|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  output 5x5x16 				|
+| Flatten	      	| input 5x5x16, output 400				|
+| Fully connected		| Input 400, output 120	|
+| RELU					|												|
+| Regularization					|												|
+| Fully connected		| Input 120, output 84	|
+| RELU					|												|
+| Regularization					|												|
+| Fully connected		| Input 84, output 43	|
+| Softmax				|         									|
