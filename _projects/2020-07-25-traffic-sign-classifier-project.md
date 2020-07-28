@@ -232,3 +232,8 @@ def predict(X_data):
 ---
 ### Shortcomings with the current pipeline
 A shortcoming could be the way fake data have been generated.
+
+---
+### Possible improvements
+
+A possible improvement would be to use a different network architecture or change the dimensions of the Le-Net layers, graph validation and training error to better tune the hyperparameters and make sure the network doesn't overfit the data.
