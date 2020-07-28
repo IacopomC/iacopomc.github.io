@@ -125,7 +125,8 @@ As a last step, I shuffled the training set otherwise the ordering of the data m
 #### Final Model Architecture
 
 | Layer         		|     Description	        					|
-|:---------------------:|:---------------------------------------------:|
+|---------------------|---------------------------------------------|
+
 | Input         		| 32x32x1 image (Y channel)   							|
 | Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
 | RELU					|												|
@@ -142,7 +143,6 @@ As a last step, I shuffled the training set otherwise the ordering of the data m
 | Regularization					|												|
 | Fully connected		| Input 84, output 43	|
 | Softmax				|         									|
-{:.table-striped}
 
 #### Training hyperparameters
 
