@@ -9,7 +9,7 @@ date: 2020-07-25
 ---
 
 The goals of this project is to design and implement a deep learning model that learns to recognize traffic signs. The dataset used is the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) .  
-The starting point is the LeNet-5 implementation, the only changes are the number of classes and the preprocessing.
+The starting point is the [LeNet-5](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) implementation, the only changes are the number of classes and the preprocessing.
 
 The steps followed are:
 
