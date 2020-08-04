@@ -135,6 +135,7 @@ As a last step, I shuffled the training set otherwise the ordering of the data m
 I trained the model using an *Adam Optimizer*, a *learning rate* of 0.001 ( it tells *tensorflow* how quickly to update the network's weights and this is a good default value), a *dropout rate* of 0.1 and *batch size* of 128.
 
 The *batch size* variable tells *tensorflow* how many training images to run through the network at a time. The larger the *batch size*, the faster our model will train but our processor may have a memory limit on how large a batch it can run.
+<br/>
 
 My final model results were:
 * validation set accuracy of 0.943
