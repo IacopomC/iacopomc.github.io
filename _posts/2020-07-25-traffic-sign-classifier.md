@@ -15,7 +15,7 @@ Deep learning has become the most important frontier in both machine learning an
 <br/>
 
 Most of the job is done by the neural network itself, so we'll try to give an explanation of the three biggest steps:
-- why we pre-process the data?
+- why do we pre-process the data?
 - what do the different layers in the model architecture do?
 - how do we tune the hyperparameters?
 
@@ -23,6 +23,16 @@ Most of the job is done by the neural network itself, so we'll try to give an ex
 It's important to shuffle the training data otherwise its ordering might have a big effect on how well it trains.
 
 #### Model Architecture
+Each stage is composed
+of a (convolutional) filter bank layer, a non-linear transform
+layer, and a spatial feature pooling layer. The spatial pooling
+layers lower the spatial resolution of the representation,
+thereby making the representation robust to small shifts and geometric distortions
+
+A gradient-based
+supervised training procedure updates every single filter in
+every filter bank in every layer so as to minimizes a loss
+function
 
 #### Hyperparameters
 

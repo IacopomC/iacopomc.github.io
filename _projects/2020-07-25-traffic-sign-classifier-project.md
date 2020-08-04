@@ -132,7 +132,9 @@ As a last step, I shuffled the training set otherwise the ordering of the data m
 
 #### Training hyperparameters
 
-I trained the model using an Adam optimizer, a learning rate of 0.001, a dropout rate of 0.1 and batch size of 128.
+I trained the model using an *Adam Optimizer*, a *learning rate* of 0.001 ( it tells *tensorflow* how quickly to update the network's weights and this is a good default value), a *dropout rate* of 0.1 and *batch size* of 128.
+
+The *batch size* variable tells *tensorflow* how many training images to run through the network at a time. The larger the *batch size*, the faster our model will train but our processor may have a memory limit on how large a batch it can run.
 
 My final model results were:
 * validation set accuracy of 0.943
@@ -217,9 +219,11 @@ def predict(X_data):
 
 ---
 ### Shortcomings with the current pipeline
-A shortcoming could be the way fake data have been generated.
+A shortcoming could be the way fake data have been generated, using Keras of Tensorflow might end up with better data augmentation
 
 ---
 ### Possible improvements
 
-A possible improvement would be to use a different network architecture or change the dimensions of the Le-Net layers, graph validation and training error to better tune the hyperparameters and make sure the network doesn't overfit the data.
+- Use a different network architecture or change the dimensions of the Le-Net layers
+- Graph validation and training error to better tune the hyperparameters and make sure the network doesn't overfit the data.
+- Run the network for a higher number of *epochs* (if you have a big enough GPU)
