@@ -20,3 +20,18 @@ Most of the job is done by the neural network itself, so we'll try to give an ex
 - how do we tune the hyperparameters?
 
 #### Image pre-processing
+It's important to shuffle the training data otherwise its ordering might have a big effect on how well it trains.
+
+#### Model Architecture
+
+#### Hyperparameters
+
+The *epoch* variable just tells *tensorflow* how many times we want it to run our network.
+
+The *batch size* variable tells *tensorflow* how many training images to run through the network at a time. The larger the *batch size*, the faster our model will train but our processor may have a memory limit on how large a batch it can run.
+
+Both hyperparameters *mu* and *sigma* relate to how we initialize our weights.
+
+The *learning rate* tells *tensorflow* how quickly to update the network's weights: *rate = 0.001* is a good default value.
+
+The *Adam Algorithm* minimizes the loss function. It's a little more complicated than *Stochastic Gradient Descent* and it makes a good default choice as an optimizer.
