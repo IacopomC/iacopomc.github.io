@@ -5,7 +5,7 @@ categories:
   - projects
 tags:
   - [Project, Self-Driving, Computer-Vision, Traffic-Sign-Classifier, Cnn-Classifier, Convolutional-Neural-Networks, Data-Augmentation]
-date: 2020-07-25
+date: 2020-07-27
 ---
 
 The goals of this project is to design and implement a deep learning model that learns to recognize traffic signs. The dataset used is the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) .  
