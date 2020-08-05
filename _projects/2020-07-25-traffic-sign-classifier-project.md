@@ -4,7 +4,7 @@ title: "Traffic Sign Classifier"
 categories:
   - projects
 tags:
-  - Project
+  - [Project, Self-Driving, Computer-Vision, Traffic-Sign-Classifier, Cnn-Classifier, Convolutional-Neural-Networks, Data-Augmentation]
 date: 2020-07-25
 ---
 

@@ -4,7 +4,7 @@ title: "Advanced Lane Finding"
 categories:
   - projects
 tags:
-  - Project
+  - [Project, Self-Driving, Computer-Vision, Lane-Finding, Lane-Detection, Advanced-Lane-Finding, Sliding-Windows, Gradient-Transform, Color-Transform, Perspective-Transform]
 date: 2020-07-16
 ---
 

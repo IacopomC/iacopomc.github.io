@@ -3,7 +3,7 @@ title: "Finding Lane Lines on the Road"
 categories:
   - Blog
 tags:
-  - Post
+  - [Post, Self-Driving, Computer-Vision, Hough-Transform, Canny-Edge-Detector, Lane-Detection]
 ---
 
 The purpose of this post is to explain the theory behind the project [Finding Lane Lines on the Road](https://iacopomc.github.io/projects/2020-07-13-lane-finding-project/) and build up some intuition about the process. There won't be any snippets from the source code since we only want to build a high level understanding of why we do what we do.

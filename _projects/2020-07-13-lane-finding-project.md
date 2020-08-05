@@ -4,7 +4,7 @@ title: "Finding Lane Lines on the Road"
 categories:
   - projects
 tags:
-  - Project
+  - [Project, Self-Driving, Computer-Vision, Hough-Transform, Canny-Edge-Detector, Lane-Detection]
 date: 2020-07-13
 ---
 
