@@ -4,7 +4,7 @@ title: "Behavioral Cloning"
 categories:
   - projects
 tags:
-  - [Project, Self-Driving, Computer-Vision, Keras, Convolutional-Neural-Networks]
+  - [Project, Self-Driving, Computer-Vision, Behavioral Cloning, Keras, Convolutional-Neural-Networks]
 date: 2020-08-03
 ---
 
@@ -22,7 +22,7 @@ The project is developed using Python and Keras. You can download the full code 
 
 ### Model Architecture and Training Strategy
 
-My model consists of a convolution neural network inspired by the architecture [published by the Nvidia team]('https://developer.nvidia.com/blog/deep-learning-self-driving-cars/'):
+My model consists of a convolution neural network inspired by the architecture [published by the Nvidia team](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/):
 
 ```python
 model = Sequential()
