@@ -99,7 +99,7 @@ These images show what a recovery looks like:
 
 To help the model generalize better I recorded the vehicle driving counter-clockwise
 
-Data augmentation can help generate more points in the "feature" space and make the trained model more robust. To augment the data set, I also flipped the images horizontally and inverted the angles this would teach the car to steer clockwise and counter-clockwise.
+Data augmentation can help generate more points in the "feature" space and make the trained model more robust. To augment the data set, I also flipped the images horizontally and inverted the angles: this would teach the car to steer clockwise and counter-clockwise.
 
 I used the side car images for training too. This carries two benefits::
 * it's three times as much data
