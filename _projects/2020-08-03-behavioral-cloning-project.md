@@ -89,11 +89,13 @@ I then recorded the vehicle recovering from the left side and right side of the 
 
 These images show what a recovery looks like:
 
-![alt text][image3]
+<br/>
 
-![alt text][image4]
+<img src="{{ site.url }}/assets/images/behavioral-cloning-project/recovery_01.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/behavioral-cloning-project/recovery_02.jpg" width="32%">
+<img src="{{ site.url }}/assets/images/behavioral-cloning-project/recovery_03.jpg" width="32%">
 
-![alt text][image5]
+<br/>
 
 To help the model generalize better I recorded the vehicle driving counter-clockwise
 
