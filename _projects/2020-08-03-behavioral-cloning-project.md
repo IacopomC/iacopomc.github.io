@@ -79,7 +79,11 @@ model.compile(loss='mse', optimizer='adam')
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
-![alt text][image2]
+<br/>
+
+<img src="{{ site.url }}/assets/images/behavioral-cloning-project/center_lane_driving.jpg" width="70%">
+
+<br/>
 
 I then recorded the vehicle recovering from the left side and right side of the road back to center so that the vehicle would learn to steer properly and get back on track. A little trick here is to delete the data entries where the steering value is zero, because it contains the action of driving the car along the sideline.
 
