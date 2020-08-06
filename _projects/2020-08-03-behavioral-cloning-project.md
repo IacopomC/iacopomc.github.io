@@ -47,4 +47,6 @@ The model includes RELU layers throughout the convolutional layers to introduce 
 
 Here is a visualization of the architecture of the Nvidia Team:
 
+<br/>
+
 <img src="{{ site.url }}/assets/images/behavioral-cloning-project/nvidia_model.png" width=70%>
