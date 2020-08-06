@@ -101,7 +101,7 @@ To help the model generalize better I recorded the vehicle driving counter-clock
 
 Data augmentation can help generate more points in the "feature" space and make the trained model more robust. To augment the data set, I also flipped the images horizontally and inverted the angles: this would teach the car to steer clockwise and counter-clockwise.
 
-I used the side car images for training too. This carries two benefits::
+I used the side car images for training too. This carries two benefits:
 * it's three times as much data
 * using these images will teach the vehicle to steer towards the center if it starts drifting off towards the sides
 
@@ -109,6 +109,7 @@ Since the steering angle associated to the side cameras is the same as the one i
 
 After the collection process, I had X number of data points. I then preprocessed this data by removing the top 70 pixels that contains the landscape and the bottom 25 pixels that contains the car hood.
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set with an 80/20 ratio.
+---
+### Possible improvements
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 2 as evidenced by the graph below:
+- Run the network for a higher number of *epochs* (if you have a big enough GPU)
