@@ -117,7 +117,7 @@ Since the steering angle associated to the side cameras is the same as the one i
 
 <br/>
 
-After the collection process, I had X number of data points. I then preprocessed this data by removing the top 70 pixels that contains the landscape and the bottom 25 pixels that contains the car hood.
+After the collection process, I had 30492 data points. I then preprocessed this data by removing the top 70 pixels that contains the landscape and the bottom 25 pixels that contains the car hood.
 
 ---
 ### Possible improvements
