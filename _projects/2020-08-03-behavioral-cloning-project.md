@@ -45,6 +45,8 @@ model.add(Dense(1)) # I only want to predict steering angle
 
 The model includes RELU layers throughout the convolutional layers to introduce nonlinearity, and the data is normalized in the model using a Keras lambda layer.
 
+<br/>
+
 Here is a visualization of the architecture of the Nvidia Team:
 
 <br/>
@@ -61,7 +63,7 @@ The model contains dropout layers between the final three fully connected layers
 model.add(Dropout(0.3))
 ```
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that it was not overfitting and it was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 ---
 
@@ -87,6 +89,8 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 I then recorded the vehicle recovering from the left side and right side of the road back to center so that the vehicle would learn to steer properly and get back on track. A little trick here is to delete the data entries where the steering value is zero, because it contains the action of driving the car along the sideline.
 
+<br/>
+
 These images show what a recovery looks like:
 
 <br/>
@@ -99,13 +103,19 @@ These images show what a recovery looks like:
 
 To help the model generalize better I recorded the vehicle driving counter-clockwise
 
+<br/>
+
 Data augmentation can help generate more points in the "feature" space and make the trained model more robust. To augment the data set, I also flipped the images horizontally and inverted the angles: this would teach the car to steer clockwise and counter-clockwise.
+
+<br/>
 
 I used the side car images for training too. This carries two benefits:
 * it's three times as much data
 * using these images will teach the vehicle to steer towards the center if it starts drifting off towards the sides
 
 Since the steering angle associated to the side cameras is the same as the one in the center even though the image appears off to one side of the road, I applied a correction factor of *+- 0.2* to the relative steering angle.
+
+<br/>
 
 After the collection process, I had X number of data points. I then preprocessed this data by removing the top 70 pixels that contains the landscape and the bottom 25 pixels that contains the car hood.
 
