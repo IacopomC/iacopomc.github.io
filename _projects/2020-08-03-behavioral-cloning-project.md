@@ -71,3 +71,38 @@ The model used an *Adam Optimizer*, so the learning rate was not tuned manually.
 
 ```python
 model.compile(loss='mse', optimizer='adam')
+```
+
+---
+
+### Creation of the Training Set & Training Process
+
+To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+
+![alt text][image2]
+
+I then recorded the vehicle recovering from the left side and right side of the road back to center so that the vehicle would learn to steer properly and get back on track. A little trick here is to delete the data entries where the steering value is zero, because it contains the action of driving the car along the sideline.
+
+These images show what a recovery looks like:
+
+![alt text][image3]
+
+![alt text][image4]
+
+![alt text][image5]
+
+To help the model generalize better I recorded the vehicle driving counter-clockwise
+
+Data augmentation can help generate more points in the "feature" space and make the trained model more robust. To augment the data set, I also flipped the images horizontally and inverted the angles this would teach the car to steer clockwise and counter-clockwise.
+
+I used the side car images for training too. This carries two benefits::
+* it's three times as much data
+* using these images will teach the vehicle to steer towards the center if it starts drifting off towards the sides
+
+Since the steering angle associated to the side cameras is the same as the one in the center even though the image appears off to one side of the road, I applied a correction factor of *+- 0.2* to the relative steering angle.
+
+After the collection process, I had X number of data points. I then preprocessed this data by removing the top 70 pixels that contains the landscape and the bottom 25 pixels that contains the car hood.
+
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set with an 80/20 ratio.
+
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 2 as evidenced by the graph below:
