@@ -50,3 +50,15 @@ Here is a visualization of the architecture of the Nvidia Team:
 <br/>
 
 <img src="{{ site.url }}/assets/images/behavioral-cloning-project/nvidia_model.png" width="70%">
+
+---
+
+#### Attempts to reduce overfitting in the model
+
+The model contains dropout layers between the final three fully connected layers to combat overfitting:
+
+```python
+model.add(Dropout(0.3))
+```
+
+The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
