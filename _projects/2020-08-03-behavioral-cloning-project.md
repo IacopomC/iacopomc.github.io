@@ -20,7 +20,7 @@ The project is developed using Python and Keras. You can download the full code 
 
 ---
 
-## Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
 My model consists of a convolution neural network inspired by the architecture [published by the Nvidia team]('https://developer.nvidia.com/blog/deep-learning-self-driving-cars/'):
 
@@ -53,7 +53,7 @@ Here is a visualization of the architecture of the Nvidia Team:
 
 ---
 
-#### Attempts to reduce overfitting in the model
+### Attempts to reduce overfitting in the model
 
 The model contains dropout layers between the final three fully connected layers to combat overfitting:
 
@@ -62,3 +62,12 @@ model.add(Dropout(0.3))
 ```
 
 The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+
+---
+
+### Model parameter tuning
+
+The model used an *Adam Optimizer*, so the learning rate was not tuned manually. Since this is a regression network instead of a classification network I used *mean square error* as loss function:
+
+```python
+model.compile(loss='mse', optimizer='adam')
