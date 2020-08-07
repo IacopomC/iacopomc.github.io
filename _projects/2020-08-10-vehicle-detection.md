@@ -18,6 +18,6 @@ The tools used are (in the following order):
 * Create a *Heat Map* of recurring detections frame by frame to reject outliers and follow detected vehicles.
 * Estimate a *Bounding Box* for vehicles detected.
 
-The project is developed using Python. You can download the full code from [GitHub](https://github.com/IacopomC/CarND-Vehicle-Detection).
+The project is developed using Python and OpenCv. You can download the full code from [GitHub](https://github.com/IacopomC/CarND-Vehicle-Detection).
 
 ---
