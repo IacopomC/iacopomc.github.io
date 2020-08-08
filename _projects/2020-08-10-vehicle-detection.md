@@ -115,3 +115,34 @@ I settled on my final choice of parameters based upon the performance of the SVM
 <br/>
 
 Specifically, the final parameters chosen were: HSV color space, 9 orientations, 8 pixels per cell, 2 cells per block, ALL channels of the HOG space, (32, 32) spatial size and 32 histogram bins. The classifier performance of each of the configurations are summarized in the table below:
+
+| | Color space | Orientation | Pixels Per Cell | Cells Per Block | HOG Channel | Spatial Size | Hist Bins | Extraction Time (s)| Training Time (s) | Accuracy |
+| -:| :-:| :-: | :-: | :-: | :-: | :-:| :-:| :-:| :-:| :-:|
+| 1 | RGB | 9 | 8 | 2 | ALL | (8,8) | 32 | 112 | 15.09 | 98.09 |
+| 2 | RGB | 9 | 8 | 2 | ALL | (32,32) | 32 | 224 | 23.78 | 98.37% |
+| 3 | RGB | 9 | 8 | 2 | ALL | (32,32) | 64 | 113.42 | 22.36 | 98.45% |
+| 4 | HSV | 9 | 8 | 2 | 0 | (32,32) | 64 | 56.14 | 15.92 | 97.78% |
+| 5 | HSV | 9 | 8 | 2 | 1 | (32,32) | 64 | 60.87 | 15.19 | 97.94% |
+| 6 | HSV | 9 | 8 | 2 | ALL | (32,32) | 64 | 120.67 | 4.18 | 99.24% |
+| 7 | HSV | 9 | 8 | 2 | ALL | (32,32) | 32 | 113.84 | 4.82 | 99.35% |
+| 8 | LUV | 9 | 8 | 2 | ALL | (16,16) | 32 | 119.21 | 15.53 | 99.24% |
+| 9 | LUV | 9 | 8 | 2 | ALL | (32,32) | 32 | 116.87 | 11.1 | 98.96% |
+| 10 | LUV | 9 | 8 | 2 | 0 | (16,16) | 32 | 58.11 | 5.53 | 98.76% |
+| 11 | LUV | 9 | 8 | 2 | 0 | (32,32) | 32 | 59.64 | 11.48 | 98.59% |
+| 12 | LUV | 9 | 8 | 2 | 1 | (16,16) | 32 | 55.17 | 7.13 | 96.76% |
+| 13 | HLS | 9 | 8 | 2 | ALL | (16,16) | 32 | 121.02 | 14.73 | 99.21% |
+| 14 | HLS | 9 | 8 | 2 | ALL | (32,32) | 32 | 118.85 | 5.93 | 99.32% |
+| 15 | HLS | 9 | 8 | 2 | ALL | (32,32) | 64 | 117.84 | 5.14 | 99.3% |
+| 16 | HLS | 9 | 8 | 2 | 2 | (32,32) | 32 | 61.1 | 16.77 | 96.93% |
+| 17 | HLS | 9 | 8 | 2 | 0 | (32,32) | 32 | 73.84 | 16.54 | 97.02% |
+| 18 | YUV | 9 | 8 | 2 | 0 | (32,32) | 32 | 73.08 | 11.53 | 98.76% |
+| 19 | YUV | 9 | 8 | 2 | 1 | (32,32) | 32 | 72.41 | 14.68 | 96.68% |
+| 20 | YUV | 9 | 8 | 2 | 2 | (32,32) | 32 | 72.03 | 13.99 | 96.88% |
+| 21 | YUV | 9 | 8 | 2 | ALL | (32,32) | 32 | 131.28 | 5.62 | 99.18% |
+| 22 | YUV | 9 | 8 | 2 | ALL | (32,32) | 64 | 115.77 | 6.53 | 99.18% |
+| 23 | YUV | 9 | 8 | 2 | ALL | (16,16) | 32 | 122.38 | 9.45 | 99.3% |
+| 24 | YCrCb | 9 | 8 | 2 | ALL | (16,16) | 32 | 122.55 | 13.99 | 99.07% |
+| 25 | YCrCb | 9 | 8 | 2 | ALL | (32,32) | 32 | 118.18 | 5.24 | 99.24% |
+| 26 | YCrCb | 9 | 8 | 2 | ALL | (32,32) | 64 | 117.35 | 5.76 | 99.3% |
+
+Both configurations number 7 and number 26 give good results on the final video. I chose the number 7 because despite being more wiggly, it's capable of identifying cars on the other side of the road.
