@@ -103,3 +103,15 @@ def color_hist(img, nbins=32):    #bins_range=(0, 256)
 
     return hist_features
 ```
+
+---
+
+### Classifier Training
+
+I trained a linear SVM using the default classifier parameters and using *HOG Features*, *Spatial Intensity* and *Color Intensity Histogram Features*.
+
+I settled on my final choice of parameters based upon the performance of the SVM classifier.
+
+<br/>
+
+Specifically, the final parameters chosen were: HSV color space, 9 orientations, 8 pixels per cell, 2 cells per block, ALL channels of the HOG space, (32, 32) spatial size and 32 histogram bins. The classifier performance of each of the configurations are summarized in the table below:
