@@ -118,7 +118,7 @@ Specifically, the final parameters chosen were: HSV color space, 9 orientations,
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/vehicle-detection-project/classifier_training_table.JPG">
+<img src="{{ site.url }}/assets/images/vehicle-detection-project/classifier_training_table.JPG"  width="120%">
 
 <br/>
 
