@@ -123,3 +123,7 @@ Specifically, the final parameters chosen were: HSV color space, 9 orientations,
 <br/>
 
 Both configurations number 7 and number 26 give good results on the final video. I chose the number 7 because despite being more wiggly, it's capable of identifying cars on the other side of the road.
+
+### Sliding Window Search
+
+The method combines HOG feature extraction with a sliding window search, but rather than performing feature extraction on each window individually, the HOG features are extracted just once for the entire region of interest (i.e. lower half of each frame of video) and subsample that array for each sliding window.
