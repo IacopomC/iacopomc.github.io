@@ -141,3 +141,11 @@ I decided to search the lower half of each frame of video at different scales. T
 <img src="{{ site.url }}/assets/images/vehicle-detection-project/scale_3.png" width="49%">
 
 <br/>
+
+Ultimately I searched on four scales using HSV 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result. Here is the result on some test images:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/vehicle-detection-project/pipeline_test_images.png">
+
+<br/>
