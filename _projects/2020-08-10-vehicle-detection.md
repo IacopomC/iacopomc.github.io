@@ -166,3 +166,9 @@ Here is a frames and its corresponding heatmap:
 ---
 
 ### Results
+
+Here's the result of the pipeline applied to all the test images included in the project:
+
+<video width="70%" controls>
+  <source type="video/mp4" src="{{ site.url }}/assets/videos/vehicle-detection-project/output_project_video.mp4">
+</video>
