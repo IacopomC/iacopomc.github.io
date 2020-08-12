@@ -127,3 +127,17 @@ Both configurations number 7 and number 26 give good results on the final video.
 ### Sliding Window Search
 
 The method combines HOG feature extraction with a sliding window search, but rather than performing feature extraction on each window individually, the HOG features are extracted just once for the entire region of interest (i.e. lower half of each frame of video) and subsample that array for each sliding window.
+
+<br/>
+
+I decided to search the lower half of each frame of video at different scales. The following images show the configurations of all search windows in the final implementation, for small scale = 1.0, 1.5, 2.0 and 3.0:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/vehicle-detection-project/scale_1.png" width="49%">
+<img src="{{ site.url }}/assets/images/vehicle-detection-project/scale_1,5.png" width="49%">
+
+<img src="{{ site.url }}/assets/images/vehicle-detection-project/scale_2.png" width="49%">
+<img src="{{ site.url }}/assets/images/vehicle-detection-project/scale_3.png" width="49%">
+
+<br/>
