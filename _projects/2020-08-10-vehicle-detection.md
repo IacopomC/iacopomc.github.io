@@ -149,3 +149,20 @@ Ultimately I searched on four scales using HSV 3-channel HOG features plus spati
 <img src="{{ site.url }}/assets/images/vehicle-detection-project/pipeline_test_images.png">
 
 <br/>
+
+---
+
+### Video Implementation
+
+I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle. I constructed bounding boxes to cover the area of each blob detected.  
+
+Here is a frames and its corresponding heatmap:
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/vehicle-detection-project/heatmap.png">
+
+<br/>
+---
+
+### Results
