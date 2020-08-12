@@ -172,3 +172,11 @@ Here's the result of the pipeline applied to all the test images included in the
 <video width="70%" controls>
   <source type="video/mp4" src="{{ site.url }}/assets/videos/vehicle-detection-project/output_project_video.mp4">
 </video>
+
+### Shortcomings with current pipeline
+The pipeline fails with cars that surpass each other occluding the view, they are hard to tell apart and detected as a single entities. When the cars are very far the detector needs to run at small scale in order to find them, but this creates a lot of small positive detections.
+
+### Possible improvements
+* Including more data: although the test accuracy of the classifier is high, it is very likely this is overfitted because the training dataset contains some time series data.
+* Determine vehicle location and speed to predict its location in subsequent frames.
+* Trying out convolutional neural network to implement the image classifier and see whether it gives better results.
