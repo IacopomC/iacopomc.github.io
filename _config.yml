@@ -7,8 +7,8 @@ url:              //iacopomc.github.io
 owner:
   name:           Iacopo Catalano
   avatar:         avatar.jpg
-  bio:            Learning about Computer Vision and Machine Learning 
-                  one MOOC at a time. Seeking the chance to satisfy
+  bio:            XR Grad Student | AI Advocate | Autonomous Driving Enthusiast.
+                  Seeking the chance to satisfy
                   my hunger to learn and my desire to achieve.
   email:          iacopomcatalano@gmail.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
@@ -33,7 +33,7 @@ collections:
   projects:
     output: true
     sort_by: date
-  
+
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Europe/Rome
@@ -43,7 +43,7 @@ highlighter: rouge
 markdown:    kramdown
 kramdown:
 extensions: ["strikethrough"]
-  
+
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title/
 
