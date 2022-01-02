@@ -91,7 +91,7 @@ A preview of the range image
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_pcl.JPG">
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_range.JPG">
 
 <br/>
 
@@ -99,12 +99,11 @@ as well as its point cloud representation
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_range.png">
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_pcl.png">
 
 <br/>
 
 are visible here.
-
 
 **Birds-eye View of LiDAR Data.** After obtaining the point
 cloud, we create its Birds-Eye View perspective (BEV). The crucial part is converting the LiDAR points from sensor coordinates to BEV-map coordinates, which can be computed since each sensor comes with an *extrinsic* transformation that defines the transform from the sensor frame to the vehicle frame.
@@ -116,7 +115,7 @@ in the following image: the *LiDAR (or vehicle) coordinate system* is displayed 
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_range.png">
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/lidar_axes.png">
 
 <br/>
 
@@ -130,7 +129,7 @@ as RGB channels the *intensity*, *height* and *density* layers after normalizing
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/lidar_axes.png">
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_bev.png">
 
 <br/>
 
