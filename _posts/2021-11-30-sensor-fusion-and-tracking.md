@@ -310,5 +310,23 @@ A visualization of the tracking process is displayed below: 6 vehicles are corre
 
 ### Conclusion
 
+Accurate 3D object detection and tracking are core tasks in state-of-the-art driving systems. Camera images alone lack depth information, making the detection ambiguous. The use of an Extended Kalman Filter to combine a deep learning approach on LiDAR data and RGB camera images improves significantly the accuracy in tracking vehicles over time.
+
+<br/>
+
+A comparison between Resnet and Darknet was provided using precision and recall as metrics in the object detection step. The results showed that while the object detector using Resnet has a higher precision, Darknet leads to higher recall values. Further studies with different metrics can be done to assert the advantages of one model over the other.
+
+<br/>
+
+Furthermore, the tracking process was evaluated using RMSE, showing optimal results for the Resnet model in the first track, but suboptimal in the other cases potentially due to inaccuracy of data.
+
+<br/>
+
+Overall, this represents a starting point with lots of room for future developments. The parametrization process can be fine-tuned to reduce the RMSE during tracking: one idea would be to apply the standard deviation values for LiDAR instead of fixed parameters. Similarly, a more advanced data association (*Global Nearest Neighbor* (GNN) or *Joint Probabilistic Data Association* (JPDA)) can be implemented. Since the precomputed detections contain a lot of false negatives (lots of ground truths without measurements) a new detection model could be computed instead.
+
+<br/>
+
+On the tracking side, the Kalman filter could be adapted to also estimate the object’s width, length, and height, instead of simply using unfiltered lidar detections, in addition to use a non-linear motion model (e.g. a bicycle model) which is more appropriate for vehicle movement than the linear motion model used, since a vehicle can only move forward or backward, not in any direction.
+
 ### References
 
