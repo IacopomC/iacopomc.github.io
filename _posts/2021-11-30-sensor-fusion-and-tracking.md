@@ -330,3 +330,26 @@ On the tracking side, the Kalman filter could be adapted to also estimate the ob
 
 ### References
 
+[1] Hong-Yuan Mark Liao Alexey Bochkovskiy, Chien-Yao Wang. 2020. YOLOv4: Optimal Speed and Accuracy of Object Detection. arXiv (2020).
+
+[2] Mayank Bansal, Alex Krizhevsky, and Abhijit Ogale. 2018. Chauffeur-Net: Learning to Drive by Imitating the Best and Synthesizing the Worst. arXiv:1812.03079 [cs.RO]
+
+[3] Gioele Ciaparrone, Francisco Luque Sánchez, Siham Tabik, Luigi Troiano, Roberto Tagliaferri, and Francisco Herrera. 2020. Deep learning in video multi-object tracking: A survey. Neurocomputing 381 (2020), 61–88. https://doi.org/10.1016/j.
+neucom.2019.11.023
+
+[4] Nguyen Mau Dung. 2020.Super-Fast-Accurate-3D-Object-Detection-PyTorch.
+https://github.com/maudzung/Super-Fast-Accurate-3D-Object-Detection.
+
+[5] Peiyun Hu, Jason Ziglar, David Held, and Deva Ramanan. 2020. What You See is What You Get: Exploiting Visibility for 3D Object Detection. arXiv:1912.04986 [cs.CV]
+
+[6] Roger Labbe. 2014. Kalman and Bayesian Filters in Python. https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python.
+
+[7] Peixuan Li, Huaici Zhao, Pengfei Liu, and Feidao Cao. 2020. RTM3D: Realtime Monocular 3D Detection from Object Keypoints for Autonomous Driving. arXiv:arXiv:2001.03343
+
+[8] Karl Amende-Horst-Michael Gross Martin Simon, Stefan Milz. 2018. Complex-YOLO: Real-time 3D Object Detection on Point Clouds. arXiv (2018).
+
+[9] Pei Sun, Henrik Kretzschmar, Xerxes Dotiwalla, Aurelien Chouard, Vijaysai Patnaik, Paul Tsui, James Guo, Yin Zhou, Yuning Chai, Benjamin Caine, et al. 2020. Scalability in perception for autonomous driving: Waymo open dataset. In
+Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition.2446–2454.
+
+[10] Sebastian Thrun, Dieter Fox, Wolfram Burgard, and Frank Dellaert. 2001. Robust Monte Carlo localization for mobile robots. Artificial intelligence 128, 1-2 (2001), 99–141.
+
