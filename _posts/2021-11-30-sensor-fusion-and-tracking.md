@@ -91,7 +91,7 @@ A preview of the range image
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_range.JPG">
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_range.png">
 
 <br/>
 
@@ -99,7 +99,7 @@ as well as its point cloud representation
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_pcl.png">
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_pcl.JPG">
 
 <br/>
 
