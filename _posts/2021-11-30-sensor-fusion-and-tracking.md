@@ -105,6 +105,8 @@ as well as its point cloud representation
 
 are visible here.
 
+<br/>
+
 **Birds-eye View of LiDAR Data.** After obtaining the point
 cloud, we create its Birds-Eye View perspective (BEV). The crucial part is converting the LiDAR points from sensor coordinates to BEV-map coordinates, which can be computed since each sensor comes with an *extrinsic* transformation that defines the transform from the sensor frame to the vehicle frame.
 
@@ -134,7 +136,7 @@ as RGB channels the *intensity*, *height* and *density* layers after normalizing
 <br/>
 
 **3D Object Detection.** The Object Detection framework loads
-two type of configurations: one from *Super Fast and Accurate 3D Object Detection* based on *3D LiDAR Point Clouds* and the other from Complex-YOLO: Real-time 3D Object Detection on Point Clouds [1, 8]. In the first, the network architecture is based on the *ResNetbased Keypoint Feature Pyramid Network* (KFPN) [4], which provides real-time 3D object detection based on a monocular RGB image [7].
+two type of configurations: one from *Super Fast and Accurate 3D Object Detection* based on *3D LiDAR Point Clouds* and the other from Complex-YOLO: Real-time 3D Object Detection on Point Clouds [1, 8]. In the first, the network architecture is based on the *ResNet based Keypoint Feature Pyramid Network* (KFPN) [4], which provides real-time 3D object detection based on a monocular RGB image [7].
 
 <br/>
 
@@ -144,6 +146,42 @@ density of 3D LiDAR point clouds as input, and output the detected bounding boxe
 <br/>
 
 **Performance Evaluation.** At the end, we compute various performance measures to assess the object detection: we evaluate the *Intersection-Over-Union* (IOU) between the ground truth labels and the performed detection to assign a certain detected object to a label based on a threshold. We use this information to compute *precision* and *recall* over all frames.
+
+#### Object Tracking
+
+An *Extended Kalman Filter* (EKF) is used to track vehicles over time, based on the lidar detections fused with camera detections. The tracking process comprises different modules that linked together perform the task accurately.
+
+<br/>
+
+**Extended Kalman Filter**. Kalman filters estimate posterior
+distributions of robot poses conditioned on sensor data. Exploiting a range of restrictive assumptions (i.e. Gaussian-distributed noise and Gaussian distributed initial uncertainty) they represent posteriors by Gaussians. They offer an elegant and efficient algorithm for localization [10].
+
+<br/>
+
+The EKF handles nonlinearity by linearizing the system at the
+point of the current estimate, and then the linear Kalman filter is used to filter this linearized system [6]. The general equations are summarized in the following table.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/KF_equations.JPG">
+
+<br/>
+
+The version implemented here has 6 dimensions (3 for the position (x, y, z) and 3 for the velocity (*v_x* , *v_y*, *v_z* )), and the constant velocity motion model is used for the transition matrix.
+
+<br/>
+
+**Track Management.** This module handles the generation of
+new tracks, removal of old tracks, and it updates the states of the current tracks, based on the information received by the measurements. The track object contains the *current state* x as well as the *state transition matrix* P, and they are both initialized based on unassigned measurements previously transformed from sensor to vehicle coordinates. Each track is assigned a score that increases or decreases if it’s associated with a certain measurement or not. Furthermore, a comparison to a certain threshold determines the removal or status update (i.e. from '*tentative*' to '*confirmed*') of a specific track.
+
+<br/>
+
+**Association.** The track/measurement association is performed
+using *Single Nearest Neighbor Association*: an association matrix in computed based on the *Mahalanobis* distance between each pair. Furthermore, a gate is implemented using the *chi square* test. The measurement with the smallest entry in the matrix is associated to a particular track.
+
+<br/>
+
+**Measurement.** This module initialize the measurement according to the different sensors with the appropriate sensor-to-vehicle projection, making use of homogenous coordinates.
 
 #### Experiments
 
