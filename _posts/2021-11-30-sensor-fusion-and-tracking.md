@@ -183,9 +183,132 @@ using *Single Nearest Neighbor Association*: an association matrix in computed b
 
 **Measurement.** This module initialize the measurement according to the different sensors with the appropriate sensor-to-vehicle projection, making use of homogenous coordinates.
 
-#### Experiments
+### Experiments
 
-#### Conclusion
+#### Dataset
 
-#### References
+In this project, measurements from LiDAR and camera are fused to track vehicles over time using the Waymo Open Dataset [9].
+
+<br/>
+
+**Lidar Data.** The dataset contains data from five LiDARs - one mid-range LiDAR (top) and four short-range LiDARs (front, side left, side right, and rear).
+
+<br/>
+
+The following limitations were applied:
+
+<ul>
+  <li>Range of the mid-range LiDARs truncated to a maximum of 75 meters</li>
+  <li>Range of the short-range LiDARs truncated to a maximum of 20 meters</li>
+  <li>The strongest two intensity returns are provided for all five LiDARs</li>
+</ul>
+
+The point cloud of each LiDAR is encoded as a range image. Two
+range images are provided for each LiDAR, one for each of the two strongest returns.
+
+<br/>
+
+**3D LiDAR Labels.** 3D 7-DOF bounding box labels in the vehicle frame with globally unique tracking IDs are provided. The following objects have 3D labels: vehicles, pedestrians, cyclists, signs.
+
+<br/>
+
+**Camera Data.** The dataset contains images from five cameras
+associated with five different directions. They are front, front left, front right, side left, and side right.
+
+<br/>
+
+One camera image is provided for each pair in JPEG format. In addition to the image bytes, the vehicle pose, the velocity corresponding to the exposure time of the image center and rolling shutter timing information is provided. This information is useful to customize the LiDAR to camera projection, if needed.
+
+<br/>
+
+**2D Camera Labels.** The 2D camera labels are composed of 2D
+bounding box labels in the camera images. The labels are tightfitting, axis-aligned 2D bounding boxes with globally unique tracking IDs. The bounding boxes cover only the visible parts of the objects. Vehicles, pedestrians, cyclists are the labelled objects.
+
+<br/>
+
+This project makes use of three different sequences from the
+Waymo Open Dataset [9], named later as track 1, track 2 and track 3.
+
+<br/>
+
+The object detection methods used in this project use pre-trained models which have been provided by the original authors as well as pre-computed lidar detections.
+
+#### Implementation Details
+
+The object detection methods used in this project use pre-trained models which have been provided by the original authors. The code was written in Python 3.7 on a Windows machine. No GPU was used, even though a flag is present to switch hardware.
+
+#### Results
+
+A series of performance measures is used to evaluate the model at different steps.
+
+<br/>
+
+**Object Detection.** Precision and recall are used for the detection approach as suggested in the outline of the project.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/performance_table.JPG">
+
+<br/>
+
+The *Resnet* detector has a higher precision but a lower recall compared to the model with *Darknet* over all three tracks. High precision values indicate a low false positive rate, but a low value of recall means that of all the vehicles encountered, only a small percentage was actually identified with respect to the ground truth.
+
+<br/>
+
+A reason resides in the inaccuracy of the precomputed detection
+values, which contain many false negatives.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/gt_no_meas.png">
+
+<br/>
+
+In the image above we can see several ground truths without
+measurements. Moreover, the detected vehicle 2 despite presenting no measurement is still tracked by the algorithm.
+
+<br/>
+
+A visual comparison of the detection obtained with the two
+models is provided in the two images below.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/labels_detections_bev.png">
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/labels_vs_detections.png">
+
+<br/>
+
+We can see that the model based on Darknet misidentifies a vehicle on the right, but it correctly identifies two vehicles more than the Resnet model in the same frame.
+
+<br/>
+
+**Object Tracking.** Finally, the *RMSE* is used to estimate the tracking performance.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/rmse.png">
+
+<br/>
+
+As we can see in the image above a comparison of the results for both models and over each track. Resnet (first row) perform better overall and best in the first track (first column). Despite the high RMSE values in the second track (second column) both models identify and track the main vehicles in the same time range.
+
+<br/>
+
+Unfortunately, the lack of LiDAR measurements in the precomputed values results in an increase of RMSE.
+
+A visualization of the tracking process is displayed below: 6 vehicles are correctly identified in accordance with the LiDAR measurements, 5 of which are confirmed tracks and 1 is tentative (meaning that further calculation are necessary at this stage).
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/tracking.png">
+
+<br/>
+
+### Conclusion
+
+### References
 
