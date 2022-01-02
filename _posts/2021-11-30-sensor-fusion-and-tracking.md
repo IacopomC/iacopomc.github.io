@@ -132,7 +132,9 @@ in the following image: the *LiDAR (or vehicle) coordinate system* is displayed 
 <br/>
 
 <figure>
-    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/lidar_axes.png">
+    <p style="text-align: center">
+      <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/lidar_axes.png">
+    </p>
     <figcaption>Display of <i>sensor coordinate system</i> (in yellow) and <i>image coordinate system</i> (in blue).</figcaption>
 </figure>
 
@@ -354,9 +356,7 @@ A visualization of the tracking process is displayed below: 6 vehicles are corre
 
 <figure>
     <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/tracking.png">
-    <p style="text-align: center">
-      <figcaption>Tracking process visualization</figcaption>
-    </p>
+    <figcaption style="margin: auto 10px">Tracking process visualization</figcaption>
 </figure>
 
 <br/>
