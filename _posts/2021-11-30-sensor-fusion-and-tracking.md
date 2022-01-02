@@ -15,12 +15,12 @@ depend on the awareness of their surroundings to reason and react accordingly, a
 <br/>
 
 A deep-learning approach is used to detect vehicles in LiDAR
-data based on a * birds-eye view * perspective of the 3D point-cloud, followed by an extended Kalman filter used to track vehicles over time, based on the lidar detections fused with camera detections.
+data based on a *birds-eye view* perspective of the 3D point-cloud, followed by an extended Kalman filter used to track vehicles over time, based on the lidar detections fused with camera detections.
 Two models (Resnet and Darknet) are implemented and their performance evaluated based on precision and recall.
 
 <br/>
 
-This project is based on the project for the course in the * Udacity Self-Driving Car Engineer Nanodegree Program: [Sensor Fusion and Tracking](https://github.com/udacity/nd013-c2-fusion-starter) *. You can download the full code from [GitHub](https://github.com/IacopomC/3D-Multi-Object-Tracking).
+This project is based on the project for the course in the *Udacity Self-Driving Car Engineer Nanodegree Program: [Sensor Fusion and Tracking](https://github.com/udacity/nd013-c2-fusion-starter)*. You can download the full code from [GitHub](https://github.com/IacopomC/3D-Multi-Object-Tracking).
 
 #### Introduction
 
@@ -45,11 +45,11 @@ to track vehicles over time using the Waymo Open Dataset [9].
 The contributions of this paper are:
 
 <ul>
-  <li>** Object detection **: a deep-learning approach is used to detect vehicles in LiDAR data based on a * birds-eye view * perspective of the 3D point-cloud. Also, a series of performance measures is used to evaluate the performance of the detection approach.</li>
-  <li>** Object tracking **: an extended Kalman filter is used to track vehicles over time, based on the lidar detections fused with camera detections. Data association and track managementare implemented as well.</li>
+  <li><strong>Object detection</strong>: a deep-learning approach is used to detect vehicles in LiDAR data based on a <i>birds-eye view</i> perspective of the 3D point-cloud. Also, a series of performance measures is used to evaluate the performance of the detection approach.</li>
+  <li><strong>Object tracking</strong>: an extended Kalman filter is used to track vehicles over time, based on the lidar detections fused with camera detections. Data association and track managementare implemented as well.</li>
 </ul>
 
-The diagram in the following figure contains an outline of the data flow and of the individual steps that make up the algorithm. Two different models based on a * Resnet * and * Darknet * architecture are adopted and their performance on both object detection and tracking evaluated using precision and recall as metrics.
+The diagram in the following figure contains an outline of the data flow and of the individual steps that make up the algorithm. Two different models based on a *Resnet* and *Darknet* architecture are adopted and their performance on both object detection and tracking evaluated using precision and recall as metrics.
 
 <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/project-layout.png">
 
