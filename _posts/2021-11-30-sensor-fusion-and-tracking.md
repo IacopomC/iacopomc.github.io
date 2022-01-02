@@ -49,8 +49,9 @@ The contributions of this paper are:
   <li>**Object tracking**: an extended Kalman filter is used to track vehicles over time, based on the lidar detections fused with camera detections. Data association and track managementare implemented as well.</li>
 </ul>
 
-The diagram in fig. 1 contains an outline of the data flow and
-of the individual steps that make up the algorithm. Two different models based on a *Resnet* and *Darknet* architecture are adopted and their performance on both object detection and tracking evaluated using precision and recall as metrics.
+The diagram in the following figure contains an outline of the data flow and of the individual steps that make up the algorithm. Two different models based on a *Resnet* and *Darknet* architecture are adopted and their performance on both object detection and tracking evaluated using precision and recall as metrics.
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/project-layout.png" width="70%">
 
 #### Method
 
