@@ -125,6 +125,20 @@ as RGB channels the *intensity*, *height* and *density* layers after normalizing
 
 <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/lidar_axes.png">
 
+<br/>
+
+**3D Object Detection.** The Object Detection framework loads
+two type of configurations: one from *Super Fast and Accurate 3D Object Detection* based on *3D LiDAR Point Clouds* and the other from Complex-YOLO: Real-time 3D Object Detection on Point Clouds [1, 8]. In the first, the network architecture is based on the *ResNetbased Keypoint Feature Pyramid Network* (KFPN) [4], which provides real-time 3D object detection based on a monocular RGB image [7].
+
+<br/>
+
+The models take a BEV map encoded by height, intensity, and
+density of 3D LiDAR point clouds as input, and output the detected bounding boxes in the BEV coordinate space. Before the detections can move along in the processing pipeline, they are converted into metric coordinates in vehicle space.
+
+<br/>
+
+**Performance Evaluation.** At the end, we compute various performance measures to assess the object detection: we evaluate the *Intersection-Over-Union* (IOU) between the ground truth labels and the performed detection to assign a certain detected object to a label based on a threshold. We use this information to compute *precision* and *recall* over all frames.
+
 #### Experiments
 
 #### Conclusion
