@@ -87,7 +87,43 @@ LiDAR Cartesian coordinates can be uniquely translated to a (range, azimuth, inc
 
 <br/>
 
-A preview of the range image is visible in fig. 2 as well as its point cloud representation in fig. 3.
+A preview of the range image as well as its point cloud representation are visible in the following figures.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_pcl.JPG">
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_range.png">
+
+<br/>
+
+**Birds-eye View of LiDAR Data.** After obtaining the point
+cloud, we create its Birds-Eye View perspective (BEV). The crucial part is converting the LiDAR points from sensor coordinates to BEV-map coordinates, which can be computed since each sensor comes with an *extrinsic* transformation that defines the transform from the sensor frame to the vehicle frame.
+
+<br/>
+
+A comparison between the two coordinate systems is shown
+in the following image: the *LiDAR (or vehicle) coordinate system* is displayed in yellow, while the *image coordinate system* in blue. In the vehicle system the x-axis is positive forward, the y-axis is positive to the left, and the z-axis is positive upward. For the image coordinate system instead the x-axis is positive to the right and the y-axis is positive downward. Not only the axes of the two systems are inverted, but their directions are opposite, as well as their origin shifted (the LiDAR point cloud is centered at the position of the vehicle while the image has its origin at the top left corner).
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_range.png">
+
+<br/>
+
+To capture fine details and recognize objects more accurately,
+instead of casting the values from the point cloud to integers, we modify the level of resolution before assigning them to each pixel.
+
+<br/>
+
+Finally, to compute the BEV map displayed later, we encode
+as RGB channels the *intensity*, *height* and *density* layers after normalizing them with the difference between the 1- and 99-percentile to mitigate the influence of outliers.
+
+<br/>
+
+<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/lidar_axes.png">
 
 #### Experiments
 
