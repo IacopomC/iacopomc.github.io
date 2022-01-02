@@ -21,3 +21,14 @@ Two models (Resnet and Darknet) are implemented and their performance evaluated 
 <br/>
 
 This project is based on the project for the course in the Udacity Self-Driving Car Engineer Nanodegree Program: [Sensor Fusion and Tracking](https://github.com/udacity/nd013-c2-fusion-starter). You can download the full code from [GitHub](https://github.com/IacopomC/3D-Multi-Object-Tracking).
+
+#### Introduction
+
+#### Method
+
+#### Experiments
+
+#### Conclusion
+
+#### References
+
