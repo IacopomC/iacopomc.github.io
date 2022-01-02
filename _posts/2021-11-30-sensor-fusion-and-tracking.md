@@ -190,7 +190,7 @@ point of the current estimate, and then the linear Kalman filter is used to filt
 
 <br/>
 
-The version implemented here has 6 dimensions (3 for the position (x, y, z) and 3 for the velocity (*v_x* , *v_y*, *v_z* )), and the constant velocity motion model is used for the transition matrix.
+The version implemented here has 6 dimensions (3 for the position (x, y, z) and 3 for the velocity (<i>v<sub>x</sub></i> , <i>v<sub>y</sub></i>, <i>v<sub>z</sub></i> )), and the constant velocity motion model is used for the transition matrix.
 
 <br/>
 
