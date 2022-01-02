@@ -180,8 +180,10 @@ point of the current estimate, and then the linear Kalman filter is used to filt
 <br/>
 
 <figure>
+  <p style="text-align: center">
     <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/KF_equations.JPG">
-    <figcaption>Kalman Filter and Extended Kalman Filter equations</figcaption>
+        <figcaption>Kalman Filter and Extended Kalman Filter equations</figcaption>
+  </p>
 </figure>
 
 <br/>
@@ -267,8 +269,10 @@ A series of performance measures is used to evaluate the model at different step
 <br/>
 
 <figure>
+  <p style="text-align: center">
     <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/performance_table.JPG">
     <figcaption>Precision and recall values over all frames</figcaption>
+  </p>
 </figure>
 
 <br/>
