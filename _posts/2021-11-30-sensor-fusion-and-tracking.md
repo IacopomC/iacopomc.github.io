@@ -51,7 +51,10 @@ The contributions of this paper are:
 
 The diagram in the following figure contains an outline of the data flow and of the individual steps that make up the algorithm. Two different models based on a *Resnet* and *Darknet* architecture are adopted and their performance on both object detection and tracking evaluated using precision and recall as metrics.
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/project-layout.png">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/project-layout.png">
+    <figcaption>Diagram containing an outline of the data flow and algorithm steps</figcaption>
+</figure>
 
 ### Method
 
@@ -91,7 +94,11 @@ A preview of the range image
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_range.png">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_range.png">
+    <figcaption>Range image visualization</figcaption>
+</figure>
+
 
 <br/>
 
@@ -99,7 +106,10 @@ as well as its point cloud representation
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_pcl.JPG">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_pcl.JPG">
+    <figcaption>LiDAR point cloud visualization</figcaption>
+</figure>
 
 <br/>
 
@@ -117,7 +127,10 @@ in the following image: the *LiDAR (or vehicle) coordinate system* is displayed 
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/lidar_axes.png">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/lidar_axes.png">
+    <figcaption>Display of <i>sensor coordinate system</i> (in yellow) and <i>image coordinate system</i> (in blue).</figcaption>
+</figure>
 
 <br/>
 
@@ -131,7 +144,10 @@ as RGB channels the *intensity*, *height* and *density* layers after normalizing
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_bev.png">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_bev.png">
+    <figcaption>Birds eye view of LiDAR point cloud</figcaption>
+</figure>
 
 <br/>
 
@@ -163,7 +179,10 @@ point of the current estimate, and then the linear Kalman filter is used to filt
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/KF_equations.JPG">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/KF_equations.JPG">
+    <figcaption>Kalman Filter and Extended Kalman Filter equations</figcaption>
+</figure>
 
 <br/>
 
@@ -247,7 +266,10 @@ A series of performance measures is used to evaluate the model at different step
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/performance_table.JPG">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/performance_table.JPG">
+    <figcaption>Precision and recall values over all frames</figcaption>
+</figure>
 
 <br/>
 
@@ -260,7 +282,10 @@ values, which contain many false negatives.
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/gt_no_meas.png">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/gt_no_meas.png">
+    <figcaption>Data inaccuracy during the tracking process: four ground truth (on the right) present no measurement point in the precomputed values</figcaption>
+</figure>
 
 <br/>
 
@@ -274,11 +299,17 @@ models is provided in the two images below.
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/labels_detections_bev.png">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/labels_detections_bev.png">
+    <figcaption>Vehicle detection over birds-eye view map for Resnet (left) and Darknet (right) models: ground truth in green and detected objects red</figcaption>
+</figure>
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/labels_vs_detections.png">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/labels_vs_detections.png">
+    <figcaption>Vehicle detection visualization for Resnet (left) and Darknet (right) models: ground truth in camera image (at the top) vs detected bounding boxes over birds-eye view (at the bottom)</figcaption>
+</figure>
 
 <br/>
 
@@ -290,7 +321,10 @@ We can see that the model based on Darknet misidentifies a vehicle on the right,
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/rmse.png">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/rmse.png">
+    <figcaption>RMSE graphs comparison for tracking performance for both models (Resnet top, Darknet bottom) and track (track 1 in column 1, track 2 in column 2 and track 3 in column 3)</figcaption>
+</figure>
 
 <br/>
 
@@ -304,7 +338,10 @@ A visualization of the tracking process is displayed below: 6 vehicles are corre
 
 <br/>
 
-<img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/tracking.png">
+<figure>
+    <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/tracking.png">
+    <figcaption>Tracking process visualization</figcaption>
+</figure>
 
 <br/>
 
