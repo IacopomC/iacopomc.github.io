@@ -6,7 +6,7 @@ tags:
   - [Post, Self-Driving, Sensor-Fusion, Multi-Object-Tracking, 3d-Point-Cloud, LiDAR, Resnet, Extended-Kalman-Filter]
 ---
 
-#### Abstract
+### Abstract
 
 This work proposes a method to detect and track vehicles from
 LiDAR maps guided by RGB images. A multitude of applications
@@ -22,7 +22,7 @@ Two models (Resnet and Darknet) are implemented and their performance evaluated 
 
 This project is based on the project for the course in the *Udacity Self-Driving Car Engineer Nanodegree Program: [Sensor Fusion and Tracking](https://github.com/udacity/nd013-c2-fusion-starter)*. You can download the full code from [GitHub](https://github.com/IacopomC/3D-Multi-Object-Tracking).
 
-#### Introduction
+### Introduction
 
 Multiple Object Tracking (MOT) is a robot vision problem with
 the goal of analyzing videos in order to detect and track objects belonging to one or more categories, without any prior knowledge about the appearance and number of targets [3]. 3D perception as well as precise 3D object detection and tracking are important components in state-of-the-art driving systems [2].
@@ -53,11 +53,11 @@ The diagram in the following figure contains an outline of the data flow and of 
 
 <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/project-layout.png">
 
-#### Method
+### Method
 
 The method proposed acts on a projection of a 3D point cloud to a 2D plane, namely *birds eye view*.
 
-##### Object Detection
+#### Object Detection
 
 A deep-learning approach is used to detect vehicles in LiDAR data based on a *birds-eye view* perspective of the 3D point-cloud.
 
@@ -118,7 +118,7 @@ instead of casting the values from the point cloud to integers, we modify the le
 
 <br/>
 
-Finally, to compute the BEV map displayed later, we encode
+Finally, to compute the BEV map displayed below, we encode
 as RGB channels the *intensity*, *height* and *density* layers after normalizing them with the difference between the 1- and 99-percentile to mitigate the influence of outliers.
 
 <br/>
