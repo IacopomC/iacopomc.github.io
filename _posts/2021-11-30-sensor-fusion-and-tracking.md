@@ -55,6 +55,32 @@ The diagram in the following figure contains an outline of the data flow and of 
 
 #### Method
 
+The method proposed acts on a projection of a 3D point cloud to a 2D plane, namely *birds eye view*.
+
+##### Object Detection
+
+A deep-learning approach is used to detect vehicles in LiDAR data based on a *birds-eye view* perspective of the 3D point-cloud.
+
+**From Range Image to Point Cloud.** Since in the Waymo Open
+Dataset the point cloud of each LiDAR is encoded as a range image [9], converting from a range image to a point cloud is the first step of the pipeline.
+
+A range image represents a LiDAR point cloud in the spherical
+coordinate system based on the following rules:
+
+<ul>
+  <li>Each row corresponds to an inclination. Row 0 (top of the image) corresponds to the maximum inclination.</li>
+  <li>Each column corresponds to an azimuth. Column 0 (left of the image) corresponds to -x-axis (i.e. the opposite of forward direction). The center of the image corresponds to the +x-axis (i.e. the forward direction). Note that an azimuth correction is needed to make sure the center of the image corresponds to the +x-axis.</li>
+</ul>
+
+To compute the conversion we first estimate the inclination
+angle for each beam in the range image; we then convert the range image to polar coordinate using the camera projection extrinsic parameters provided.
+
+The LiDAR spherical coordinate system is based on the Cartesian
+coordinate system in LiDAR sensor frame. A point (x, y, z) in
+LiDAR Cartesian coordinates can be uniquely translated to a (range, azimuth, inclination) tuple in LiDAR spherical coordinates.Hence, ultimately we convert polar coordinates to Cartesian coordinates before stacking the point cloud and LiDAR intensity vertically.
+
+A preview of the range image is visible in fig. 2 as well as its point cloud representation in fig. 3.
+
 #### Experiments
 
 #### Conclusion
