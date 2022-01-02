@@ -96,7 +96,9 @@ A preview of the range image
 
 <figure>
     <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_range.png">
-    <figcaption>Range image visualization</figcaption>
+    <p style="text-align: center">
+      <figcaption>Range image visualization</figcaption>
+    </p>
 </figure>
 
 
@@ -108,7 +110,9 @@ as well as its point cloud representation
 
 <figure>
     <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_pcl.JPG">
-    <figcaption>LiDAR point cloud visualization</figcaption>
+    <p style="text-align: center">
+      <figcaption>LiDAR point cloud visualization</figcaption>
+    </p>
 </figure>
 
 <br/>
@@ -146,7 +150,9 @@ as RGB channels the *intensity*, *height* and *density* layers after normalizing
 
 <figure>
     <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/img_bev.png">
-    <figcaption>Birds eye view of LiDAR point cloud</figcaption>
+    <p style="text-align: center">
+      <figcaption>Birds eye view of LiDAR point cloud</figcaption>
+    </p>
 </figure>
 
 <br/>
@@ -182,7 +188,9 @@ point of the current estimate, and then the linear Kalman filter is used to filt
 <figure>
   <p style="text-align: center">
     <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/KF_equations.JPG">
-        <figcaption>Kalman Filter and Extended Kalman Filter equations</figcaption>
+  </p>
+  <p style="text-align: center">
+    <figcaption>Kalman Filter and Extended Kalman Filter equations</figcaption>
   </p>
 </figure>
 
@@ -271,6 +279,8 @@ A series of performance measures is used to evaluate the model at different step
 <figure>
   <p style="text-align: center">
     <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/performance_table.JPG">
+  </p>
+  <p style="text-align: center">
     <figcaption>Precision and recall values over all frames</figcaption>
   </p>
 </figure>
@@ -344,7 +354,9 @@ A visualization of the tracking process is displayed below: 6 vehicles are corre
 
 <figure>
     <img src="{{ site.url }}/assets/images/sensor-fusion-tracking-post/tracking.png">
-    <figcaption>Tracking process visualization</figcaption>
+    <p style="text-align: center">
+      <figcaption>Tracking process visualization</figcaption>
+    </p>
 </figure>
 
 <br/>
