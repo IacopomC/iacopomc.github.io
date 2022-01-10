@@ -6,6 +6,8 @@ tags:
   - [Post, Self-Driving, Sensor-Fusion, Multi-Object-Tracking, 3d-Point-Cloud, LiDAR, Resnet, Extended-Kalman-Filter]
 ---
 
+The purpose of this post is to explain my Implementation of the opensource project for the course in the Udacity Self-Driving Car Engineer Nanodegree Program : [Sensor Fusion and Tracking](https://github.com/IacopomC/3D-Multi-Object-Tracking) and build up some intuition about the process. There won't be any snippets from the source code since we only want to build a high level understanding of why we do what we do.
+
 ### Abstract
 
 This work proposes a method to detect and track vehicles from
@@ -395,4 +397,3 @@ https://github.com/maudzung/Super-Fast-Accurate-3D-Object-Detection.
 Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition.2446–2454.
 
 [10] Sebastian Thrun, Dieter Fox, Wolfram Burgard, and Frank Dellaert. 2001. Robust Monte Carlo localization for mobile robots. Artificial intelligence 128, 1-2 (2001), 99–141.
-
