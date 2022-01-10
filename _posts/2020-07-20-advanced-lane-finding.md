@@ -6,7 +6,7 @@ tags:
   - [Post, Self-Driving, Computer-Vision, Lane-Finding, Lane-Detection, Advanced-Lane-Finding, Sliding-Windows, Gradient-Transform, Color-Transform, Perspective-Transform]
 ---
 
-The purpose of this post is to explain the theory behind the project [Advanced Lane Finding](https://iacopomc.github.io/projects/2020-07-15-advanced-lane-finding-project/) and build up some intuition about the process. There won't be any snippets from the source code since we only want to build a high level understanding of why we do what we do.
+The purpose of this post is to explain the theory behind the project [Advanced Lane Finding](https://iacopomc.github.io/projects/2020-07-20-advanced-lane-finding-project/) and build up some intuition about the process. There won't be any snippets from the source code since we only want to build a high level understanding of why we do what we do.
 
 <br/>
 
