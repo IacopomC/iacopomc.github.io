@@ -4,6 +4,13 @@ title: About me
 description: About me section
 ---
 
-Currently enrolled in an international Master's Degree (["Imaging and Light in Extended Reality", IMLEX](https://imlex.org/){:target="_blank"}), I hold a Bachelor of Science in Physics and I have past experience in Web Development and Data Science. Fascinated by the way new technologies are shaping the world, from data science to automotive vehicles, from electrical cars to solar energy, driven by my passion for knowledge I’m avidly satisfying my interests through MOOCs.
+CI received my Bachelor's degree in Physics from La Sapienza - University of Rome in 2018. From 2020 to 2022, I joined the Erasmus Mundus master's degree program [IMLEX](https://imlex.org/) obtaining degrees in Engineering from the Toyohashi University of Technology, Japan, Optics, Image, Vision, Multimedia from the University Jean Monnet, France, and Computer Science in XR from the University of Eastern Finland, Finland.
+
+<br/>
+
+Alongside my academic pursuits, I have gained experience through industry and research internships. At Accenture, I worked as a web developer first and a data scientist later. At the Laboratoire Hubert-Curien I explored the use of Siamese CNNs based Multi-Object tracking algorithms to find the set of features that best distinguish between similar small electronic parts in real-time. I completed my Master's thesis at KU Leuven exploring a 3D mapping framework for a SLAM pipeline using RGB-D images in C++.
+
+I joined the [TIERS](http://tiers.utu.fi/) lab at the University of Turku in September 2022 as a Doctoral Researcher to work on UAVs accurate positioning and ground-aided sense-and-avoid. In June 2023, I was part of the TIERS team at the ENRICH competition in the Zwentendorf Nuclear Power Plant in Austria, achieving the best drone 3D map and autonomous exploration of the competition area. My research interests include state estimation, perception, aerial robotics and multi-robot 3D mapping.
+
 <br/>
 Complementing my passions, 15 years of scouting experience - 5 of which as leader - have shaped my ability to work with and lead groups. Ability that I’m willing to use to gain hands-on experience and be part of this new technological revolution.
