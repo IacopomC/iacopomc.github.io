@@ -12,7 +12,7 @@ A comprehensive list of my work can also be found on [Google Scholar](https://sc
     <br> 
     <em> <u>Iacopo Catalano</u>, Ha Sier, Xianjia Yu, Tomi Westerlund and Jorge Peña Queralta (2023)</em>
     <br>
-    <a href="https://scholar.google.com/citations?user={{ author.scholar }}&hl=en" itemprop="sameAs">
+    <a href="https://arxiv.org/pdf/2304.12125.pdf" itemprop="sameAs">
         <i class="ai ai-arxiv ai-fw"></i> PDF
     </a>
     &nbsp;&nbsp;
