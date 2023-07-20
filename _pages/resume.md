@@ -313,7 +313,7 @@ title:
                         <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Volunteering</h2>
                         <div class="resume-section-content">
                             <span class="resume-lang-name font-weight-bold">Team Coordinator</span> <small class="text-muted font-weight-normal">(AGESCI)</small>
-                            <div class="resume-position-time">4/2001 - 2015</div>
+                            <div class="resume-position-time">2001 - 2015</div>
                             <div class="resume-award-desc">Coordinated, mentored, and trained several scout groups of different ages.</div>
                         </div>
                     </section><!--//volunteer-section-->
