@@ -7,4 +7,5 @@ main:
   - title: "PUBLICATIONS"
     url: /publications/
   - title: "RESUME"
-    url: /assets/images/iacopo_catalano_cv.pdf
+    # url: /assets/images/iacopo_catalano_cv.pdf
+    url: /resume/
