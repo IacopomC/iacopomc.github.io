@@ -20,3 +20,18 @@ A comprehensive list of my work can also be found on [Google Scholar](https://sc
         <i class="far fa-file-code"></i> Project
     </a>
 </div>
+
+<div class="publication-card">
+    <img src="../assets/images/publications/data_sample.jpg" width="40%" height="auto" alt="" align="left" style="padding-right: 15px;" /> 
+    <strong> Towards Robust UAV Tracking in GNSS-Denied Environments: A Multi-LiDAR Multi-UAV Dataset </strong>
+    <br> 
+    <em> <u>Iacopo Catalano</u>, Xianjia Yu and Jorge Peña Queralta (2023)</em>
+    <br>
+    <a href="" itemprop="sameAs">
+        <i class="ai ai-arxiv ai-fw"></i> PDF
+    </a>
+    &nbsp;&nbsp;
+    <a href="https://tiers.github.io/multi_lidar_multi_uav_dataset" itemprop="sameAs">
+        <i class="far fa-file-code"></i> Project
+    </a>
+</div>

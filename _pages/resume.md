@@ -52,7 +52,6 @@ title:
                             </ul>
                         </div><!--//secondary-info-->
                     </div><!--//row-->
-
                 </div><!--//col-->
             </div><!--//row-->
         </header>
@@ -70,7 +69,6 @@ title:
                         <div class="resume-section-content">
                             <div class="resume-timeline position-relative">
                                 <article class="resume-timeline-item position-relative pb-5">
-                                    
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">Doctoral Researcher</h3>
@@ -109,7 +107,6 @@ title:
                                         <p>&#x2022; Master thesis: Researched a 3D mapping framework for a SLAM pipeline using RGB-D images in C++.
                                         </p>
                                     </div><!--//resume-timeline-item-desc-->
-
                                 </article><!--//resume-timeline-item-->
                                 <article class="resume-timeline-item position-relative pb-5">
                                     <div class="resume-timeline-item-header mb-2">
@@ -176,8 +173,7 @@ title:
                         <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Education</h2>
                         <div class="resume-section-content">
                             <div class="resume-timeline position-relative">
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    
+                                <article class="resume-timeline-item position-relative pb-5"> 
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">Master of Engineering</h3>
@@ -242,7 +238,6 @@ title:
                                             <div class="progress-bar theme-progress-bar-dark" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </li>
-                                    
                                     <li class="mb-2">
                                         <div class="resume-skill-name">MATLAB</div>
                                         <div class="progress resume-progress">
@@ -251,7 +246,6 @@ title:
                                     </li>
                                 </ul>
                             </div><!--//resume-skill-item-->
-                            
                             <div class="resume-skill-item">
                                 <h4 class="resume-skills-cat font-weight-bold">ML/DL</h4>
                                 <ul class="list-unstyled">
@@ -275,7 +269,6 @@ title:
                                     </li>
                                 </ul>
                             </div><!--//resume-skill-item-->
-                            
                             <div class="resume-skill-item">
                                 <h4 class="resume-skills-cat font-weight-bold">Others</h4>
                                 <ul class="list-inline">
@@ -316,13 +309,10 @@ title:
                             <div class="resume-position-time">2001 - 2015</div>
                             <div class="resume-award-desc">Coordinated, mentored, and trained several scout groups of different ages.</div>
                         </div>
-                    </section><!--//volunteer-section-->
-                    
+                    </section><!--//volunteer-section--> 
                 </div>
             </div><!--//row-->
-        </div><!--//resume-body-->
-        
-        
+        </div><!--//resume-body--> 
     </div>
 </article>
 
