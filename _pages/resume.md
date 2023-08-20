@@ -181,7 +181,7 @@ title:
                                         </div><!--//row-->
                                     </div><!--//resume-timeline-item-header-->
                                     <div class="resume-timeline-item-desc">
-                                        <p>Introduction to Mobile Robotics <span class="resume-position-time">(Fall 2023)</span>
+                                        <p>Introduction to Mobile Robotics <span class="resume-position-time" style="float:right;">Fall 2023</span>
                                         </p>
                                     </div><!--//resume-timeline-item-desc-->
                                 </article><!--//resume-timeline-item-->
@@ -193,9 +193,9 @@ title:
                                         </div><!--//row-->
                                     </div><!--//resume-timeline-item-header-->
                                     <div class="resume-timeline-item-desc">
-                                        <p>Aerial Robotics and Multi-Robot Systems <span class="resume-position-time">(Spring 2023)</span>
+                                        <p>Aerial Robotics and Multi-Robot Systems <span class="resume-position-time" style="float:right;">Spring 2023</span>
                                         <br>
-                                        Hardware Acceleration for AI <span class="resume-position-time">(Spring 2023)</span>
+                                        Hardware Acceleration for AI <span class="resume-position-time" style="float:right;">Spring 2023</span>
                                         </p>
                                     </div><!--//resume-timeline-item-desc-->
                                 </article><!--//resume-timeline-item-->
