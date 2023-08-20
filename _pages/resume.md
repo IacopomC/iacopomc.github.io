@@ -56,19 +56,19 @@ title:
             </div><!--//row-->
         </header>
         <div class="resume-body p-5">
-            <!--<section class="resume-section summary-section mb-5">
+            <!--<section class="resume-section summary-section mb-4">
                 <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Career Summary</h2>
                 <div class="resume-section-content">
                     <p class="mb-0">Summarise your career here. <a class="text-reset text-link" href="https://themes.3rdwavemedia.com/resources/sketch-template/pillar-sketch-sketch-resume-template-for-developers/" target="_blank">You can make a PDF version of your resume using our free Sketch template here</a>. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
                 </div>
-            </section><!--//summary-section-->
+            </section>//summary-section-->
             <div class="row">
                 <div class="col-lg-9">
-                    <section class="resume-section experience-section mb-5">
+                    <section class="resume-section experience-section mb-4">
                         <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Professional Experience</h2>
                         <div class="resume-section-content">
                             <div class="resume-timeline position-relative">
-                                <article class="resume-timeline-item position-relative pb-5">
+                                <article class="resume-timeline-item position-relative">
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">Doctoral Researcher</h3>
@@ -95,7 +95,7 @@ title:
                                         </ul> -->
                                     </div><!--//resume-timeline-item-desc-->
                                 </article><!--//resume-timeline-item-->
-                                <article class="resume-timeline-item position-relative pb-5">
+                                <article class="resume-timeline-item position-relative">
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">Research Intern</h3>
@@ -108,7 +108,7 @@ title:
                                         </p>
                                     </div><!--//resume-timeline-item-desc-->
                                 </article><!--//resume-timeline-item-->
-                                <article class="resume-timeline-item position-relative pb-5">
+                                <article class="resume-timeline-item position-relative">
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">Research Intern</h3>
@@ -120,7 +120,7 @@ title:
                                         <p>&#x2022; Explored the use of Siamese CNNs based Multi-Object tracking algorithms to find the set of features that best distinguish between similar small electronic parts in real-time.</p>
                                     </div><!--//resume-timeline-item-desc-->
                                 </article><!--//resume-timeline-item-->
-                                <article class="resume-timeline-item position-relative pb-5">
+                                <article class="resume-timeline-item position-relative">
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">Junior Data Scientist</h3>
@@ -136,7 +136,7 @@ title:
                                         &#x2022; Supported Senior Data Scientists in algorithm design.</p>
                                     </div><!--//resume-timeline-item-desc-->
                                 </article><!--//resume-timeline-item-->
-                                <article class="resume-timeline-item position-relative pb-5">
+                                <article class="resume-timeline-item position-relative">
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">Front-end Web Developer</h3>
@@ -169,11 +169,44 @@ title:
                             </div><!--//resume-timeline-->
                         </div>
                     </section><!--//experience-section-->
-                    <section class="resume-section experience-section mb-5">
+                    <section class="resume-section experience-section mb-4">
+                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Teaching Experience</h2>
+                        <div class="resume-section-content">
+                            <div class="resume-timeline position-relative">
+                                <article class="resume-timeline-item position-relative">
+                                    <div class="resume-timeline-item-header mb-2">
+                                        <div class="d-flex flex-column flex-md-row">
+                                            <h3 class="resume-position-title font-weight-bold mb-1">Instructor</h3>
+                                            <div class="resume-company-name ms-auto">University of Turku</div>
+                                        </div><!--//row-->
+                                    </div><!--//resume-timeline-item-header-->
+                                    <div class="resume-timeline-item-desc">
+                                        <p>Introduction to Mobile Robotics <span class="resume-position-time">(Fall 2023)</span>
+                                        </p>
+                                    </div><!--//resume-timeline-item-desc-->
+                                </article><!--//resume-timeline-item-->
+                                <article class="resume-timeline-item position-relative">
+                                    <div class="resume-timeline-item-header mb-2">
+                                        <div class="d-flex flex-column flex-md-row">
+                                            <h3 class="resume-position-title font-weight-bold mb-1">Teaching Assistant</h3>
+                                            <div class="resume-company-name ms-auto">University of Turku</div>
+                                        </div><!--//row-->
+                                    </div><!--//resume-timeline-item-header-->
+                                    <div class="resume-timeline-item-desc">
+                                        <p>Aerial Robotics and Multi-Robot Systems <span class="resume-position-time">(Spring 2023)</span>
+                                        <br>
+                                        Hardware Acceleration for AI <span class="resume-position-time">(Spring 2023)</span>
+                                        </p>
+                                    </div><!--//resume-timeline-item-desc-->
+                                </article><!--//resume-timeline-item-->
+                            </div><!--//resume-timeline-->
+                        </div>
+                    </section><!--//teaching-section-->
+                    <section class="resume-section experience-section mb-4">
                         <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Education</h2>
                         <div class="resume-section-content">
                             <div class="resume-timeline position-relative">
-                                <article class="resume-timeline-item position-relative pb-5"> 
+                                <article class="resume-timeline-item position-relative"> 
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">Master of Engineering</h3>
@@ -182,7 +215,7 @@ title:
                                         <div class="resume-position-time">2020 - 2022</div>
                                     </div><!--//resume-timeline-item-header-->
                                 </article><!--//resume-timeline-item-->
-                                <article class="resume-timeline-item position-relative pb-5">
+                                <article class="resume-timeline-item position-relative">
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">M.Sc. Optics, Image, Vision, Multimedia</h3>
@@ -191,7 +224,7 @@ title:
                                         <div class="resume-position-time">2020 - 2022</div>
                                     </div><!--//resume-timeline-item-header-->
                                 </article><!--//resume-timeline-item-->
-                                <article class="resume-timeline-item position-relative pb-5">
+                                <article class="resume-timeline-item position-relative">
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">M.Sc. Computer Science in XR</h3>
@@ -200,7 +233,7 @@ title:
                                         <div class="resume-position-time">2020 - 2022</div>
                                     </div><!--//resume-timeline-item-header-->
                                 </article><!--//resume-timeline-item-->
-                                <article class="resume-timeline-item position-relative pb-5">
+                                <article class="resume-timeline-item position-relative">
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
                                             <h3 class="resume-position-title font-weight-bold mb-1">B.Sc. Physics</h3>
@@ -214,7 +247,7 @@ title:
                     </section><!--//education-section-->
                 </div>
                 <div class="col-lg-3">
-                    <section class="resume-section skills-section mb-5">
+                    <section class="resume-section skills-section mb-4">
                         <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Skills</h2>
                         <div class="resume-section-content">
                             <div class="resume-skill-item">
@@ -279,7 +312,7 @@ title:
                             </div><!--//resume-skill-item-->
                         </div><!--resume-section-content-->
                     </section><!--//skills-section-->
-                    <section class="resume-section reference-section mb-5">
+                    <section class="resume-section reference-section mb-4">
                         <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Awards</h2>
                         <div class="resume-section-content">
                             <ul class="list-unstyled resume-awards-list">
@@ -291,7 +324,7 @@ title:
                             </ul>
                         </div>
                     </section><!--//interests-section-->
-                    <section class="resume-section language-section mb-5">
+                    <section class="resume-section language-section mb-4">
                         <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Language</h2>
                         <div class="resume-section-content">
                             <ul class="list-unstyled resume-lang-list">
@@ -302,7 +335,7 @@ title:
                             </ul>
                         </div>
                     </section><!--//language-section-->
-                    <section class="resume-section language-section mb-5">
+                    <section class="resume-section language-section mb-4">
                         <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Volunteering</h2>
                         <div class="resume-section-content">
                             <span class="resume-lang-name font-weight-bold">Team Coordinator</span> <small class="text-muted font-weight-normal">(AGESCI)</small>
