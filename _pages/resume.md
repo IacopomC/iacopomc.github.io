@@ -74,7 +74,7 @@ title:
                                             <h3 class="resume-position-title font-weight-bold mb-1">Doctoral Researcher</h3>
                                             <div class="resume-company-name ms-auto">University of Turku</div>
                                         </div><!--//row-->
-                                        <div class="resume-position-time">9/2023 - Present</div>
+                                        <div class="resume-position-time">9/2022 - Present</div>
                                     </div><!--//resume-timeline-item-header-->
                                     <div class="resume-timeline-item-desc">
                                         <p>&#x2022; Researching multi-robot collaboration for UAVs accurate positioning and ground-aided sense-and-avoid.</p>
