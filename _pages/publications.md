@@ -16,7 +16,7 @@ A comprehensive list of my work can also be found on [Google Scholar](https://sc
         <i class="ai ai-arxiv ai-fw"></i> PDF
     </a>
     &nbsp;&nbsp;
-    <a href="https://tiers.github.io/multi_lidar_multi_uav_dataset" itemprop="sameAs">
+    <a href="https://github.com/TIERS/uwb-cooperative-mrs-localization" itemprop="sameAs">
         <i class="far fa-file-code"></i> Project
     </a>
 </div>
