@@ -2,6 +2,7 @@
 permalink: /about/
 title: ABOUT ME
 description: About me section
+classes: wide
 ---
 
 I received my Bachelor's degree in Physics from La Sapienza - University of Rome in 2018. From 2020 to 2022, I joined the Erasmus Mundus master's degree program [IMLEX](https://imlex.org/), obtaining degrees in Engineering from the Toyohashi University of Technology, Japan, Optics, Image, Vision, Multimedia from the University Jean Monnet, France, and Computer Science in XR from the University of Eastern Finland, Finland.
